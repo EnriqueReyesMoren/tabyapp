@@ -8,11 +8,11 @@ const hbs = require('hbs');
 const mongoose = require('mongoose');
 const logger = require('morgan');
 const path = require('path');
-const flash = require('connect-flash');
+const flash = require("connect-flash");
 
 
 mongoose
-    .connect('process.env.DB', { useNewUrlParser: true })
+    .connect(process.env.DB, { useNewUrlParser: true })
     .then(x => {
         console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
     })
@@ -30,8 +30,9 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-require('./config/session')(app);
 app.use(flash());
+require('./config/session')(app);
+
 
 // Express View engine setup
 

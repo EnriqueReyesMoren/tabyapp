@@ -65,10 +65,14 @@ exports.loginView = (req, res) => {
 //}
 
 exports.loginProcess = passport.authenticate('local', {
-    successRedirect: '/private',
+    successRedirect: '/profile',
     failureRedirect: '/',
     failureFlash: true
 })
+
+exports.Profile = (req, res) => {
+    res.render("profile")
+}
 
 exports.logout = (req, res) => {
     req.logout();
