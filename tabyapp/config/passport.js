@@ -4,16 +4,40 @@ const GoogleStrategy = require("passport-google-oauth20").Strategy
 const FacebookStrategy = require("passport-facebook").Strategy
 const { compareSync } = require("bcrypt")
 const User = require("../models/User")
+const bcrypt = require('bcrypt');
 
 //===Local===
+
+/* passport.use(new LocalStrategy({
+        usernameField: 'username',
+        passwordField: 'password'
+    },
+    (username, password, done) => {
+        User.findOne({ username })
+            .then(foundUser => {
+                if (!foundUser) {
+                    done(null, false, { message: 'Incorrect username' });
+                    return;
+                }
+
+                if (!bcrypt.compareSync(password, foundUser.password)) {
+                    done(null, false, { message: 'Incorrect password' });
+                    return;
+                }
+
+                done(null, foundUser);
+            })
+            .catch(err => done(err));
+    }
+)); */
 passport.use(
     new LocalStrategy({
-            username: "email",
-            password: "password"
+            usernameField: "username",
+            passwordField: "password"
         },
-        async(email, password, done) => {
+        async(username, password, done) => {
             try {
-                const user = await User.findOne({ email })
+                const user = await User.findOne({ username })
                 if (!user) return done(null, false, { message: "Incorrect username" })
                 if (!compareSync(password, user.password))
                     return done(null, false, { message: "Incorrect password" })
@@ -41,7 +65,7 @@ passport.use(
                 const user = await User.create({
                     email: profile.emails[0].value,
                     googleID: profile.id,
-                    photo: profile.photos[0].value
+                    profilePic: profile.photos[0].value
                 })
                 done(null, user)
             }
@@ -67,7 +91,7 @@ passport.use(
                 const user = await User.create({
                     facebookID: profile.id,
                     email: profile.emails[0].value,
-                    photo: profile.photos[0].value
+                    profilePic: profile.photos[0].value
                 })
                 done(null, user)
             }
@@ -84,8 +108,9 @@ passport.serializeUser((user, done) => {
 passport.deserializeUser(async(id, done) => {
     try {
         const user = await User.findById(id)
+        const { username, profilePic } = user
         delete user.password
-        done(null, { email, photo })
+        done(null, { username, profilePic })
     } catch (error) {
         done(error)
     }
