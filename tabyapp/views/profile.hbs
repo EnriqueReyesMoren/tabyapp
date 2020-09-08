@@ -1,7 +1,10 @@
 <h1>Profile:</h1>
 <hr>
+{{#each users}}
 <p>Username:{{username}}</p>
 
-<p>Email:{{email}}</p>
+<img src="{{profilePic}}" alt="{{username}}">
 
-<img src="https://media.tenor.com/images/d338396c0aa02100f67a0418b972162f/tenor.gif" alt="gif">
+<p>Email:{{email}}</p>
+{{/each}}
+
