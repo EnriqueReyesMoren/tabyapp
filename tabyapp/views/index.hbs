@@ -1,55 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign In</title>
-    <link rel="stylesheet" href="../css/style.css">
-</head>
-<body>
-<div class="container" id="container">
-	<div class="form-container sign-up-container">
+    <title>Taby || Welcome || Tracking a better you</title>
+    
+    
+    <!-- plugin scripts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Prata&display=swap" rel="stylesheet">
 
-		<form action="/auth/signup" method="POST">
-			<h1>Create Taby Account</h1>
-            {{#if error}}
-            <p style="color: red">{{error}}</p>
-            {{/if}}
-			
-			<span>or use your email for registration</span>
-			<input required type="text" id="input-username" name="username"  placeholder="Name" />
-			<input required type="email" id="input-email" name="email" placeholder="Email" />
-			<input required type="password" name="password" id="input-password"  placeholder="Password" />
-			<button type="submit">Sign Up</button>
-		</form>
-	</div>
-	<div class="form-container sign-in-container">
-        {{#if error}}
-        <p style="color: red">{{error}}</p>
-        {{/if}}
-		<form action="/auth/login" method="POST">
-			<h1>Sign in</h1>
-			<span>or use your account</span>
-			<input required type="username" id="input-username" name="username" placeholder="username" />
-			<input required type="password" name="password" id="input-password" placeholder="Password" />
-			<button  type="submit">Sign In</button>
-		</form>
-	</div>
-	<div class="overlay-container">
-		<div class="overlay">
-			<div class="overlay-panel overlay-left">
-				<h1>Welcome Back!</h1>
-				<p>To keep connected with Taby please login with your personal info</p>
-				<button class="ghost" id="signIn">Sign In</button>
-			</div>
-			<div class="overlay-panel overlay-right">
-				<h1>Hello, Friend!</h1>
-				<p>Enter your personal details and start</p>
-				<button class="ghost" id="signUp">Sign Up</button>
-			</div>
-		</div>
-	</div>
-</div>
-<script src="../js/script.js"></script>
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/css/animate.min.css">
+    <link rel="stylesheet" href="../assets/css/bootstrap-select.min.css">
+    <link rel="stylesheet" href="../assets/css/bootstrap-datepicker.min.css">
+    <link rel="stylesheet" href="../assets/css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="../assets/css/magnific-popup.css">
+    <link rel="stylesheet" href="../assets/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="../assets/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="../assets/css/swiper.min.css">
+    <link rel="stylesheet" href="../assets/css/piloz-icons.css">
+
+    <!-- theme styles -->
+    <link rel="stylesheet" href="../stylesheets/{{style}}">
+    <link rel="stylesheet" href="../assets/css/responsive.css">
+</head>
+
+<body>
+
+    <div class="preloader">
+        <img src="assets/images/loader.png" height="100" class="preloader__image" alt="">
+    </div><!-- /.preloader -->
+
+    <div class="page-wrapper">
+        <header class="site-header-one stricky site-header-one__fixed-top">
+            <div class="container-fluid">
+                <div class="site-header-one__logo">
+                    <a href="/"> Taby
+                    </a>
+                    <span class="side-menu__toggler"><i class="fa fa-bars"></i></span><!-- /.side-menu__toggler -->
+                </div><!-- /.site-header-one__logo -->
+                
+                <div class="main-nav__right" style="margin-top: 10px">
+                    <a href="/welcome" class="thm-btn"><span>Go to your profile</span></a>
+                </div><!-- /.main-nav__right -->
+            </div><!-- /.container-fluid -->
+        </header><!-- /.site-header-one -->
+
+        <section class="banner-one" id="home">
+            <img src="assets/images/banner/banner-shape-1-1.png" alt="Banner-Shape-1" class="banner-shape-1">
+            <img src="assets/images/banner/banner-shape-1-2.png" alt="Banner-Shape-2" class="banner-shape-2">
+            <div class="banner-one__bg"></div>
+            <div class="container-landing" >
+                <div class="row">
+                    <div class="col-xl-6 col-lg-6">
+                        <div class="banner-one__content">
+                            <h3>We help you<br>to track a better<br>you</h3>
+                            <br>
+                            <a href="/welcome" class="thm-btn"><span>Start getting better</span></a>
+                        </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6">
+                        <div class="banner-img wow fadeInUp" data-wow-duration="1500ms">
+                            <div class="banner-bg"
+                                style="background-image: url(assets/images/banner/banner-shape-1-4.png)"></div>
+                           <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+<lottie-player src="https://assets1.lottiefiles.com/packages/lf20_8TZbmM.json"  background="transparent"  speed="1"  style="width: 600px; height: 600px;"  loop  autoplay></lottie-player>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        
+    
+
+      
+
+    </div><!-- /.page-wrapper -->
+
+
+
+    
+
+    <script src="assets/js/jquery-3.5.0.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/bootstrap-select.min.js"></script>
+    <script src="assets/js/bootstrap-datepicker.min.js"></script>
+    <script src="assets/js/isotope.js"></script>
+    <script src="assets/js/jquery.ajaxchimp.min.js"></script>
+    <script src="assets/js/jquery.waypoints.min.js"></script>
+    <script src="assets/js/jquery.counterup.min.js"></script>
+    <script src="assets/js/jquery.magnific-popup.min.js"></script>
+    <script src="assets/js/jquery.validate.min.js"></script>
+    <script src="assets/js/owl.carousel.min.js"></script>
+    <script src="assets/js/TweenMax.min.js"></script>
+    <script src="assets/js/swiper.min.js"></script>
+    <script src="assets/js/wow.js"></script>
+    <script src="assets/js/jquery.easing.min.js"></script>
+    <script src="assets/js/theme.js"></script>
 </body>
+
 </html>

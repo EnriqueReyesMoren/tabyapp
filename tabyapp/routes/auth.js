@@ -5,7 +5,8 @@ const {
     signupProcess,
     loginView,
     loginProcess,
-    profile
+    profile,
+    welcome
 } = require("../controllers/auth")
 
 router.get("/", signupView)
