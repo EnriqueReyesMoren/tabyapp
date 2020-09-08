@@ -1,5 +1,7 @@
 const bcrypt = require("bcrypt")
 const User = require("../models/User")
+const passport = require('../config/passport');
+
 
 
 //============SIGNUP================
@@ -37,25 +39,38 @@ exports.loginView = (req, res) => {
     console.log(req.session)
     res.render("/", { counter: req.session.counter })
 }
-exports.loginProcess = async(req, res) => {
-    // 1. Extraer la informacion del req.body
-    const { email, password } = req.body
-        // 2. Verificar que no nos envian campos vacios
-    if (email === "" || password === "") {
-        return res.render("/", { error: "Missing fields" })
-    }
-    // 3. Verificar si el usuario existe, si existe podemos
-    // comparar las contrase~as
-    const existingUser = await User.findOne({ email })
-    if (!existingUser) {
-        return res.render("/", { error: "Error" })
-    }
-    // 4. verificar que la contrase~a es correcta
-    if (bcrypt.compareSync(password, existingUser.password)) {
-        // 5. hacer render del perfil del usuario
-        req.session.user = existingUser
-        res.redirect("/profile")
-    } else {
-        return res.render("/", { error: `Password doesn't match` })
-    }
+
+
+// exports.loginProcess = async(req, res) => {
+//     // 1. Extraer la informacion del req.body
+//     const { email, password } = req.body
+//         // 2. Verificar que no nos envian campos vacios
+//     if (email === "" || password === "") {
+//         return res.render("/", { error: "Missing fields" })
+//     }
+//     // 3. Verificar si el usuario existe, si existe podemos
+//     // comparar las contrase~as
+//     const existingUser = await User.findOne({ email })
+//     if (!existingUser) {
+//         return res.render("/", { error: "Error" })
+//     }
+//     // 4. verificar que la contrase~a es correcta
+//     if (bcrypt.compareSync(password, existingUser.password)) {
+//         // 5. hacer render del perfil del usuario
+//         req.session.user = existingUser
+//         res.redirect("/profile")
+//     } else {
+//         return res.render("/", { error: `Password doesn't match` })
+//     }
+//}
+
+exports.loginProcess = passport.authenticate('local', {
+    successRedirect: '/private',
+    failureRedirect: '/',
+    failureFlash: true
+})
+
+exports.logout = (req, res) => {
+    req.logout();
+    res.redirect('/')
 }

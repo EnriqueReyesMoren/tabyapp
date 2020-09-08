@@ -7,36 +7,34 @@ const User = require("../models/User")
 
 //===Local===
 passport.use(
-    new LocalStrategy(
-        {
+    new LocalStrategy({
             username: "email",
             password: "password"
         },
-        async (email, password, done) => {
+        async(email, password, done) => {
             try {
-                const user = await User.findOne({ email})
-                if (!user) return done(null,false, { message: "Incorrect username" })
+                const user = await User.findOne({ email })
+                if (!user) return done(null, false, { message: "Incorrect username" })
                 if (!compareSync(password, user.password))
                     return done(null, false, { message: "Incorrect password" })
-                done(null, user)   
-                } catch (error) {
-                  console.error(error)
-                  done(error)
-                }
+                done(null, user)
+            } catch (error) {
+                console.error(error)
+                done(error)
             }
-        )
+        }
     )
+)
 
 
 //===Google===
 passport.use(
-    new GoogleStrategy(
-        {
+    new GoogleStrategy({
             clientID: process.env.GOOGLE_ID,
             clientSecret: process.env.GOOGLE_SECRET,
             callbackURL: "/auth/google/callback"
         },
-        async (accessToken, refreshToken, profile, done) => {
+        async(accessToken, refreshToken, profile, done) => {
             console.log("PROFILE:", profile)
             const user = await User.findOne({ googleID: profile.id })
             if (!user) {
@@ -55,22 +53,21 @@ passport.use(
 
 //===Facebook===
 passport.use(
-    new FacebookStrategy(
-        {
+    new FacebookStrategy({
             clientID: process.env.FACEBOOK_ID,
             clientSecret: process.env.FACEBOOK_SECRET,
             callbackURL: "http://localhost:3000/auth/facebook/callback",
             profileFields: ["id", "email", "gender", "link", "name", "photos"]
         },
-        async (accessToken, refreshToken, profile, done) => {
+        async(accessToken, refreshToken, profile, done) => {
             const user = await User.findOne({
                 facebookID: profile.id
             })
             if (!user) {
                 const user = await User.create({
-                facebookID: profile.id,
-                email: profile.emails[0].value,
-                photo: profile.photos[0].value
+                    facebookID: profile.id,
+                    email: profile.emails[0].value,
+                    photo: profile.photos[0].value
                 })
                 done(null, user)
             }
@@ -84,13 +81,13 @@ passport.serializeUser((user, done) => {
     done(null, user._id)
 })
 
-passport.deserializeUser(async(id,done) => {
+passport.deserializeUser(async(id, done) => {
     try {
         const user = await User.findById(id)
         delete user.password
-        done(null, {email, photo})
-    } catch (error){
-        done (error)
+        done(null, { email, photo })
+    } catch (error) {
+        done(error)
     }
 })
 
