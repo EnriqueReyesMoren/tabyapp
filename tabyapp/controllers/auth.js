@@ -46,6 +46,7 @@ exports.loginProcess = passport.authenticate('local', {
     failureFlash: true
 })
 
+//Login
 exports.profile = (req, res) => {
     res.render('profile', { user: req.user });
 }
@@ -56,7 +57,12 @@ exports.getContent = async (req,res) => {
   res.render('profile', { user });
 }
 
+//Add Habit
+exports.addHabit = (req, res) => {
+  res.render('addHabit')
+}
 
+//Logout
 exports.logout = (req, res) => {
     req.logout();
     res.redirect('/')

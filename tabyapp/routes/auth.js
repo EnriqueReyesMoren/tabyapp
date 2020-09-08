@@ -7,7 +7,8 @@ const {
     loginProcess,
     profile,
     getContent,
-    welcome
+    welcome,
+    addHabit
 } = require("../controllers/auth")
 
 router.get("/", signupView)
@@ -20,7 +21,8 @@ router.post("/login", loginProcess)
 router.get('/profile', profile)
 router.get('/profile/:id', getContent)
 
-// router.get('/add-habit', addHabit)
+//toAddHabitPage
+router.get('/add-habit', addHabit)
 
 
 
