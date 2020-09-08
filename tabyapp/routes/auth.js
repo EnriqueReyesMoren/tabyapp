@@ -6,6 +6,7 @@ const {
     loginView,
     loginProcess,
     profile,
+    getContent,
     welcome
 } = require("../controllers/auth")
 
@@ -17,8 +18,9 @@ router.post("/login", loginProcess)
 
 //toProfile 
 router.get('/profile', profile)
+router.get('/profile/:id', getContent)
 
-
+// router.get('/add-habit', addHabit)
 
 
 

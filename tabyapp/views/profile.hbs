@@ -1,10 +1,9 @@
 <h1>Profile:</h1>
 <hr>
-{{#each users}}
-<p>Username:{{username}}</p>
+<p>Hello {{user.username}}</p>
 
-<img src="{{profilePic}}" alt="{{username}}">
+<img src="{{user.profilePic}}" alt="{{user.username}}">
 
-<p>Email:{{email}}</p>
-{{/each}}
+<p>Email</p> 
+<p>{{user.email}}</p>
 

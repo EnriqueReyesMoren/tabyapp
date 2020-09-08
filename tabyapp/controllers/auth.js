@@ -41,7 +41,7 @@ exports.loginView = (req, res) => {
 }
 
 exports.loginProcess = passport.authenticate('local', {
-    successRedirect: "/auth/profile",
+    successRedirect: "/auth/profile/",
     failureRedirect: '/',
     failureFlash: true
 })
@@ -50,7 +50,11 @@ exports.profile = (req, res) => {
     res.render('profile', { user: req.user });
 }
 
-
+exports.getContent = async (req,res) => {
+  // const { id } = req.params
+  const user = await User.findById( {_id: req.params} );
+  res.render('profile', { user });
+}
 
 
 exports.logout = (req, res) => {
