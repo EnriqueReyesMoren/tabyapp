@@ -5,7 +5,7 @@ const {
     signupProcess,
     loginView,
     loginProcess,
-    Profile
+    profile
 } = require("../controllers/auth")
 
 router.get("/", signupView)
@@ -15,7 +15,9 @@ router.get("/", loginView)
 router.post("/login", loginProcess)
 
 //toProfile 
-router.get("/profile", Profile)
+router.get('/profile', profile)
+
+
 
 
 module.exports = router
