@@ -13,7 +13,7 @@ module.exports = app => {
             // Este par de opciones son las que nos crean siempre una cookie nueva la primera vez que un user visita nuestro server o una vez que la anterior expira.(o sea manda una cookie si no existe de forma automatica).
             saveUninitialized: true,
             resave: false,
-            cookie: { maxAge: 60000 },
+            cookie: { maxAge: 600000 },
             store: new MongoStore({
                 mongooseConnection: mongoose.connection,
                 ttl: 60 * 60 * 24 // 60sec * 60min * 24h => 1 day
