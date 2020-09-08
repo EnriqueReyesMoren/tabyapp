@@ -3,10 +3,10 @@ exports.home = (req, res) => {
     res.render("index",)
 }
 
-exports.profile = (req, res) => {
-    if (req.session.user) {
-        res.render("profile", req.session.user)
-    } else {
-        res.redirect("/")
-    }
-}
+// exports.profile = (req, res) => {
+//     if (req.session.user) {
+//         res.render("profile", req.session.user)
+//     } else {
+//         res.redirect("/")
+//     }
+// }
