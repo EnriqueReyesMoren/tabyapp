@@ -1,11 +1,10 @@
-const express = require("express")
-const passport = require("passport")
-const router = express.Router()
-
 const User = require("../models/User")
 const Habit = require("../models/Habit")
 
-
+exports.getHabits = async(req, res) => {
+    const user = await Habit.find().populate("user")
+    res.render("index", { user })
+}
 
 exports.createHabit = async(req, res) => {
     // 1. extraer la informacion

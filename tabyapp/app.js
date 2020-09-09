@@ -15,7 +15,7 @@ const flash = require("connect-flash");
 //cambiar variable de entorno de DB
 //mongodb+srv://dieglitter:123@cluster0.bido3.mongodb.net/taby-app?retryWrites=true&w=majority
 mongoose
-    .connect(process.env.DB, { useNewUrlParser: true })
+    .connect('mongodb://localhost/tabytest', { useNewUrlParser: true })
     .then(x => {
         console.log(`Connected to Mongo Atlas! Database name: "${x.connections[0].name}"`)
     })
@@ -74,15 +74,15 @@ app.use(
 
 app.use(flash());
 require("./passport")(app)
-    /* require('./config/session')(app); */
 
-
-const index = require('./routes/');
+const index = require('./routes');
 app.use('/', index);
 
+const auth = require("./routes/auth");
+app.use("/auth", auth)
 
-app.use("/auth", require("./routes/auth"))
-    /* app.use("/habit", require("./routes/habit")) */
+const habit = require("./routes/habit")
+app.use("/habit", habit)
 
 
 module.exports = app;

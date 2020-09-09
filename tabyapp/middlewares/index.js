@@ -1,7 +1,7 @@
-/* exports.ensureLogin = route => (req, res, next) => {
-    if (req.user) next();
-    else res.redirect(route);
-} */
+exports.catchErrors = controller => (req, res, next) =>
+    controller(req, res).catch(next)
+
+
 
 exports.ensureLogin = (req, res, next) => {
     if (req.isAuthenticated()) {
@@ -10,8 +10,3 @@ exports.ensureLogin = (req, res, next) => {
         res.redirect("/welcome")
     }
 }
-
-
-
-exports.catchErrors = controller => (req, res, next) =>
-    controller(req, res).catch(next)

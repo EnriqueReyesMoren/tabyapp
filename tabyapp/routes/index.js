@@ -13,3 +13,5 @@ router.get("/", home)
 router.get('/welcome', welcome)
 
 // Habits routes
+
+module.exports = router
