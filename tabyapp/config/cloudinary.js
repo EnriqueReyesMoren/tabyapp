@@ -14,7 +14,7 @@ const storage = new CloudinaryStorage({
     return {
       folder: "taby",
       allowed_formats: ["jpg", "png"],
-      public_id: `profile-pic-${file.originalname}`
+      public_id: `taby-${file.originalname}`
     }
   }
 })

@@ -1,6 +1,9 @@
 const express = require("express")
 const router = express.Router()
 
+const { ensureLogin, catchErrors } = require("../middlewares")
+
+const uploader = require("../config/cloudinary")
 
 
 const {
@@ -15,6 +18,7 @@ const {
     profile,
     getContent,
     welcome,
+    updatePic
     // addHabit,
     // viewHabit,
     // getMainPage,
@@ -35,6 +39,8 @@ router.get('/facebook/callback', facebookRedirect)
     //toProfile 
 router.get('/profile', profile)
 router.get('/profile/:id', getContent)
+
+router.post('/profile-pic', uploader.single("profilePic"), catchErrors(updatePic))
 
 // //toAddHabitPage
 // router.get('/add-habit', addHabit)
