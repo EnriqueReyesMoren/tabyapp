@@ -1,3 +1,33 @@
-<form action="/add-habit">
+<h2>Add a new Habit</h2>
 
+<form action="/add-habit" method="POST">
+
+    <label for="input-habit">Name your habit</label>
+    <input type="text" id="input-habit" name="input-habit" placeholder="Listen to Frank Ocean everyday!" />
+
+    <label for="input-intention">Choose your intention!</label>
+    <select name="input-intention" id="input-intention">
+      <option value="build">Build</option>
+      <option value="quit">Quit</option>
+    </select>
+
+    <label for="input-time">Choose a goal period</label>
+    <select name="input-time" id="input-time">
+      <option value="daily">Daily</option>
+      <option value="weekly">Weekly</option>
+      <option value="monthly">Monthly</option>
+      <option value="yearly">Yearly</option>
+    </select>
+
+     <label for="input-goal">Choose your goal!</label>
+     <input type="number" id="input-goal" name="input-goal" min="1" >
+
+     <label for="input-note">Add a note!</label>
+     <textarea name="input-note" id="input-note" cols="30" rows="10"></textarea>
+
+     <button type="submit">Create Habit</button>
+
+    {{#if errorField}}
+    <p class="error">{{errorMessage}}</p>
+    {{/if}}
 </form>

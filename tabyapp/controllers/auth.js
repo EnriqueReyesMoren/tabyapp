@@ -71,6 +71,7 @@ exports.loginProcess = passport.authenticate('local', {
     })
     // maybe later  uploader.single("photo") 
 
+//Login
 exports.profile = (req, res) => {
     res.render('profile', { user: req.user });
 }
@@ -103,11 +104,16 @@ exports.facebookProcess = passport.authenticate('facebook', {
 })
 
 exports.facebookRedirect = passport.authenticate('facebook', {
-    successRedirect: "/auth/profile",
-    failureRedirect: "/welcome",
-    failureFlash: true
-})
+        successRedirect: "/auth/profile",
+        failureRedirect: "/welcome",
+        failureFlash: true
+    })
+    //Add Habit
+exports.addHabit = (req, res) => {
+    res.render('addHabit')
+}
 
+//Logout
 exports.logout = (req, res) => {
     req.logout();
     res.redirect('/welcome')
