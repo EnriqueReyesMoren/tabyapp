@@ -82,5 +82,7 @@ app.use('/', index);
 
 
 app.use("/auth", require("./routes/auth"))
+    /* app.use("/habit", require("./routes/habit")) */
+
 
 module.exports = app;
