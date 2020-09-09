@@ -33,7 +33,7 @@ exports.getBoost = (req, res) => {
 exports.createHabit = async(req, res) => {
     // 1. extraer la informacion
     const { name, intention, period, goal, notes, color } = req.body
-    const { path: image } = req.file.path
+    const { path: image } = req.file
     const { id: userTaby } = req.user
         // 2. creamos el producto en base al usuario en sesion
     await Habit.create({

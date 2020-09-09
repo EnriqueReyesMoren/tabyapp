@@ -7,7 +7,7 @@ const userSchema = new Schema({
     email: String,
     password: String,
     profilePic: {
-        type: String,
+        type: String
     },
     habitsId: {
         type: Schema.Types.ObjectId,

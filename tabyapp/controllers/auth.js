@@ -18,12 +18,12 @@ exports.signupProcess = async(req, res) => {
     const { username, email, password } = req.body
         // 2. Verificar que nos enviaron la informacion necesaria
     if (username === "" || email === "" || password === "") {
-        return res.render("/", { error: "Missing fields" })
+        return res.render("welcome", { error: "Missing fields" })
     }
     // 3. Verificamos que el usuario existe
     const existingUser = await User.findOne({ $or: [{ username }, { email }] })
     if (existingUser) {
-        return res.render("/", { error: "Username or Email in use" })
+        return res.render("welcome", { error: "Username or Email in use" })
     }
 
 
@@ -35,7 +35,7 @@ exports.signupProcess = async(req, res) => {
         newUser = new User({
             username,
             password: hashPass,
-            photo: req.file.path || null,
+            profilePic: req.file.path || null,
             email
         })
     } else {
