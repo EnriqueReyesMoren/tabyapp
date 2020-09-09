@@ -1,13 +1,19 @@
 const express = require("express")
 const router = express.Router()
+
+
+
 const {
     signupView,
     signupProcess,
     loginView,
     loginProcess,
+    googleProcess,
+    googleRedirect,
+    facebookProcess,
+    facebookRedirect,
     profile,
-    getContent,
-    welcome
+    getContent
 } = require("../controllers/auth")
 
 router.get("/", signupView)
@@ -16,7 +22,12 @@ router.post("/signup", signupProcess)
 router.get("/", loginView)
 router.post("/login", loginProcess)
 
-//toProfile 
+//socialLogin
+router.get('/google', googleProcess)
+router.get('/google/callback', googleRedirect)
+router.get('/facebook', facebookProcess)
+router.get('/facebook/callback', facebookRedirect)
+    //toProfile 
 router.get('/profile', profile)
 router.get('/profile/:id', getContent)
 

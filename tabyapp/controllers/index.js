@@ -7,13 +7,3 @@ exports.home = (req, res) => {
 exports.welcome = (req, res) => {
     res.render('welcome');
 }
-
-
-
-/* exports.profile = (req, res) => {
-    if (req.session.user) {
-        res.render("profile", req.session.user)
-    } else {
-        res.redirect("/")
-    }
-} */

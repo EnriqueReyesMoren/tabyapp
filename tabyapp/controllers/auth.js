@@ -1,13 +1,18 @@
-const bcrypt = require("bcrypt")
+const express = require("express")
+const passport = require("passport")
+const router = express.Router()
 const User = require("../models/User")
-const passport = require('../config/passport');
-
-
+const uploader = require("../config/cloudinary")
+    // Bcrypt to encrypt passwords
+const bcrypt = require("bcrypt")
+const bcryptSalt = 10
 
 //============SIGNUP================
 
 exports.signupView = (req, res) => res.render("/")
 
+
+// maybe latter  uploader.single("photo")
 exports.signupProcess = async(req, res) => {
     // 1. Extraer la informacion del req.body
     const { username, email, password } = req.body
@@ -20,44 +25,90 @@ exports.signupProcess = async(req, res) => {
     if (existingUser) {
         return res.render("/", { error: "Username or Email in use" })
     }
-    // 4. hasheamos la contrase~a
-    const salt = bcrypt.genSaltSync(12)
-    const hashPwd = bcrypt.hashSync(password, salt)
-        // 5. si el usuario no existe... Creamos al usuario
-    await User.create({
-        username,
-        email,
-        password: hashPwd
-    })
 
-    res.redirect("/")
+
+    const salt = bcrypt.genSaltSync(bcryptSalt)
+    const hashPass = bcrypt.hashSync(password, salt)
+
+    let newUser
+    if (req.file) {
+        newUser = new User({
+            username,
+            password: hashPass,
+            photo: req.file.path || null,
+            email
+        })
+    } else {
+        newUser = new User({
+            username,
+            password: hashPass,
+            email
+        })
+    }
+
+    newUser.save().then(() => {
+            res.redirect("/")
+        })
+        .catch(err => {
+            console.log(err)
+            res.render("welcome", { message: "Something went wrong" })
+        })
 }
+
 
 //============LOGIN================
 
 exports.loginView = (req, res) => {
     console.log(req.session)
-    res.render("/", { counter: req.session.counter })
+    res.render("/", { message: req.flash("error") })
 }
 
 exports.loginProcess = passport.authenticate('local', {
-    successRedirect: "/auth/profile/",
-    failureRedirect: '/',
-    failureFlash: true
-})
+        successRedirect: "/auth/profile/",
+        failureRedirect: '/',
+        failureFlash: true,
+        passReqToCallback: true
+    })
+    // maybe later  uploader.single("photo") 
 
 exports.profile = (req, res) => {
     res.render('profile', { user: req.user });
 }
 
-exports.getContent = async (req,res) => {
-  // const { id } = req.params
-  const user = await User.findById( {_id: req.params} );
-  res.render('profile', { user });
+exports.getContent = async(req, res) => {
+    // const { id } = req.params
+    const user = await User.findById({ _id: req.params });
+    res.render('profile', { user });
 }
 
+//social login controllers
+
+exports.googleProcess = passport.authenticate('google', {
+    scope: [
+        "https://www.googleapis.com/auth/userinfo.profile",
+        "https://www.googleapis.com/auth/userinfo.email"
+    ]
+})
+
+exports.googleRedirect = passport.authenticate('google', {
+    successRedirect: "/auth/profile",
+    failureRedirect: "/welcome",
+    failureFlash: true
+})
+
+exports.facebookProcess = passport.authenticate('facebook', {
+    scope: [
+        "email"
+    ]
+})
+
+exports.facebookRedirect = passport.authenticate('facebook', {
+    successRedirect: "/auth/profile",
+    failureRedirect: "/welcome",
+    failureFlash: true
+})
 
 exports.logout = (req, res) => {
     req.logout();
-    res.redirect('/')
+    res.redirect('/welcome')
 }

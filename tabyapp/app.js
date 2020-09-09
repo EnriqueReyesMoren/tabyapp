@@ -6,13 +6,16 @@ const express = require('express');
 const favicon = require('serve-favicon');
 const hbs = require('hbs');
 const mongoose = require('mongoose');
+
 const logger = require('morgan');
 const path = require('path');
+const session = require("express-session")
+const MongoStore = require("connect-mongo")(session)
 const flash = require("connect-flash");
-
-
+//cambiar variable de entorno de DB
+//mongodb+srv://dieglitter:123@cluster0.bido3.mongodb.net/taby-app?retryWrites=true&w=majority
 mongoose
-    .connect(process.env.DB, { useNewUrlParser: true })
+    .connect('mongodb://localhost/tabytest', { useNewUrlParser: true })
     .then(x => {
         console.log(`Connected to Mongo Atlas! Database name: "${x.connections[0].name}"`)
     })
@@ -30,8 +33,7 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(flash());
-require('./config/session')(app);
+
 
 
 // Express View engine setup
@@ -53,6 +55,26 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 // default value for title local
 app.locals.title = 'TABY - Track A Better You';
 
+//sessiones 
+
+app.use(
+    session({
+        secret: process.env.SECRET,
+        // Este par de opciones son las que nos crean siempre una cookie nueva la primera vez que un user visita nuestro server o una vez que la anterior expira.(o sea manda una cookie si no existe de forma automatica).
+        saveUninitialized: true,
+        resave: false,
+        cookie: { maxAge: 600000 },
+        store: new MongoStore({
+            mongooseConnection: mongoose.connection,
+            ttl: 60 * 60 * 24 // 60sec * 60min * 24h => 1 day
+        })
+    })
+)
+
+
+app.use(flash());
+require("./passport")(app)
+    /* require('./config/session')(app); */
 
 
 const index = require('./routes/');
