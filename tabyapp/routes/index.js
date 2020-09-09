@@ -4,7 +4,7 @@ const { home, welcome } = require("../controllers")
 
 //habit routes
 
-const { isAuth, catchErrors } = require("../middlewares")
+const { ensureLogin, catchErrors } = require("../middlewares")
 const uploader = require("../config/cloudinary")
 
 router.get("/", home)
@@ -12,4 +12,6 @@ router.get("/", home)
 
 router.get('/welcome', welcome)
 
-// Habits routes
+// Habits route
+
+module.exports = router

@@ -1,9 +1,28 @@
-const express = require("express")
-const passport = require("passport")
-const router = express.Router()
+// const express = require("express")
+// const passport = require("passport")
+// const router = express.Router()
 
 const User = require("../models/User")
 const Habit = require("../models/Habit")
+
+    //Add Habit
+    exports.addHabit = (req, res) => {
+      res.render('addHabit')
+  }
+  
+  //View Habit
+  
+  exports.viewHabit = (req, res) => {
+    res.render('habitPage')
+  }
+  // Get Main Page
+  exports.getMainPage = (req,res) => {
+    res.render('main')
+  }
+  // Boost
+  exports.getBoost = (req,res) => {
+    res.render('boost')
+  }
 
 
 

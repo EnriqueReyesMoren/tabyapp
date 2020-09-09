@@ -34,8 +34,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-
-
 // Express View engine setup
 
 app.use(require('node-sass-middleware')({
@@ -78,11 +76,11 @@ require("./passport")(app)
 
 
 const index = require('./routes/');
-app.use('/', index);
+// app.use('/', index);
 
 
 app.use("/auth", require("./routes/auth"))
-    /* app.use("/habit", require("./routes/habit")) */
-
+app.use("/habit", require("./routes/habit")) 
+ 
 
 module.exports = app;

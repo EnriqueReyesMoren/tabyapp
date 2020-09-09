@@ -1,8 +1,8 @@
 <h1>Welcome {{user.name}}</h1>
-<a href="/auth/add-habit">Add a new habit!</a>
+<a href="/habit/add-habit">Add a new habit!</a>
 
 <h2>Ongoing Habits</h2>
-<a href="/auth/boost">Boost Your Mood!</a>
+<a href="/habit/boost">Boost Your Mood!</a>
 <div>
   {{#each habits}}
   <div class="card">
@@ -10,7 +10,7 @@
     <p class="card-text">{{habits.intention}}</p>
      <p class="card-text">{{habits.goal}}</p>
      <p class="card-text">{{habits.notes}}</p>
-     <a href="/auth/boost">Boost Your Mood!</a>
+     <a href="/habit/boost">Boost Your Mood!</a>
   </div>
   {{/each}}
 </div>
