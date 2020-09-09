@@ -3,8 +3,14 @@ const router = express.Router()
 const { ensureLogin, catchErrors } = require("../middlewares")
 const uploader = require("../config/cloudinary")
 
-const { createHabit, getHabits } = require("../controllers/habits")
-
+const {
+    createHabit,
+    getHabits,
+    addHabit,
+    viewHabit,
+    getMainPage,
+    getBoost
+} = require("../controllers/habits")
 
 
 /* router.get("/", catchErrors(getAllHabits))
@@ -26,6 +32,17 @@ router.get("/habit/end/:habitId", achieveHabit)
  */
 
 
+//toAddHabitPage
+router.get('/add-habit', addHabit)
+
+//toHabitPage
+router.get('/habit', viewHabit)
+
+// toMainPage
+router.get("/habit/main", getMainPage)
+
+//toBoostPage
+router.get("/boost", getBoost)
 
 
 module.exports = router

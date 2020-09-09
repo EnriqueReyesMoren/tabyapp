@@ -15,10 +15,10 @@ const {
     profile,
     getContent,
     welcome,
-    addHabit,
-    viewHabit,
-    getMainPage,
-    getBoost
+    // addHabit,
+    // viewHabit,
+    // getMainPage,
+    // getBoost
 } = require("../controllers/auth")
 
 router.get("/", signupView)
@@ -36,17 +36,17 @@ router.get('/facebook/callback', facebookRedirect)
 router.get('/profile', profile)
 router.get('/profile/:id', getContent)
 
-//toAddHabitPage
-router.get('/add-habit', addHabit)
+// //toAddHabitPage
+// router.get('/add-habit', addHabit)
 
-//toHabitPage
-router.get('/habit', viewHabit)
+// //toHabitPage
+// router.get('/habit', viewHabit)
 
-// toMainPage
-router.get("/main", getMainPage)
+// // toMainPage
+// router.get("/main", getMainPage)
 
-//toBoostPage
-router.get("/boost", getBoost)
+// //toBoostPage
+// router.get("/boost", getBoost)
 
 
 

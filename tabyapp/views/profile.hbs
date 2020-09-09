@@ -4,13 +4,17 @@
 <p>Hello {{user.username}}</p>
 
 <img src="{{user.profilePic}}" alt="{{user.username}}">
-<a href="">Update Profile Pic</a>
+
+<form action="/profile-pic" method="POST" enctype="multipart/form-data"></form>
+<label for="input-profile">Update Profile Pic</label>
+<input type="file" id="input-profile" name="input-profile">
+
 
 <p>Email</p> 
 <p>{{user.email}}</p>
 
-<a href="/auth/add-habit">Add a new habit</a>
+<a href="/habit/add-habit">Add a new habit</a>
 
-<a href="/auth/main">HabitPage</a>
+<a href="/habit/main">HabitPage</a>
 
 <a href="">logout</a>

@@ -1,6 +1,6 @@
 <h2>Add a new Habit</h2>
 
-<form action="/habit/add-habit" method="POST">
+<form action="/habit/add-habit" method="POST" enctype="multipart/form-data">
 
     <label for="input-habit">Name your habit</label>
     <input type="text" id="input-habit" name="name" placeholder="Listen to Frank Ocean everyday!" />
@@ -23,7 +23,7 @@
      <input type="number" id="input-goal" name="goal" min="1" >
 
      <label for="input-note">Add a note!</label>
-     <textarea name="note" id="input-note" cols="30" rows="10"></textarea>
+     <textarea name="notes" id="input-note" cols="30" rows="10"></textarea>
      
      <label for="input-color">Color</label>
     <select name="color" id="input-time">

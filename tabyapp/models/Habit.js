@@ -9,7 +9,7 @@ const habitSchema = new Schema({
     },
     intention: {
         type: String,
-        enum: ['Build', 'Quit'],
+        enum: ['build', 'quit'],
         required: true
     },
 
@@ -29,14 +29,12 @@ const habitSchema = new Schema({
     },
     color: {
         type: String,
-        enum: [`tomato, orange, dodgerblue, mediumseagreen, slateblue, violet, gray`],
-        default: `orange`
-
+        enum: [`tomato`, `orange`, `dodgerblue`, `mediumseagreen`, `slateblue`, `violet`, `gray`],
+        default: 'orange',
     },
 
     image: {
-        type: String,
-        default: "https://img.discogs.com/KAHyZsGakLcw64EJAL7H1-8JSpM=/450x450/smart/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/A-2013868-1492186788-3478.png.jpg"
+        type: String
     },
 
     userTaby: {
