@@ -15,7 +15,10 @@ const {
     profile,
     getContent,
     welcome,
-    addHabit
+    addHabit,
+    viewHabit,
+    getMainPage,
+    getBoost
 } = require("../controllers/auth")
 
 router.get("/", signupView)
@@ -35,6 +38,15 @@ router.get('/profile/:id', getContent)
 
 //toAddHabitPage
 router.get('/add-habit', addHabit)
+
+//toHabitPage
+router.get('/habit', viewHabit)
+
+// toMainPage
+router.get("/main", getMainPage)
+
+//toBoostPage
+router.get("/boost", getBoost)
 
 
 

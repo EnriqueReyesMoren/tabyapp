@@ -15,7 +15,7 @@ const flash = require("connect-flash");
 //cambiar variable de entorno de DB
 //mongodb+srv://dieglitter:123@cluster0.bido3.mongodb.net/taby-app?retryWrites=true&w=majority
 mongoose
-    .connect('mongodb://localhost/tabytest', { useNewUrlParser: true })
+    .connect(process.env.DB, { useNewUrlParser: true })
     .then(x => {
         console.log(`Connected to Mongo Atlas! Database name: "${x.connections[0].name}"`)
     })
