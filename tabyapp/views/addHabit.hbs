@@ -3,16 +3,16 @@
 <form action="/add-habit" method="POST">
 
     <label for="input-habit">Name your habit</label>
-    <input type="text" id="input-habit" name="input-habit" placeholder="Listen to Frank Ocean everyday!" />
+    <input type="text" id="input-habit" name="name" placeholder="Listen to Frank Ocean everyday!" />
 
     <label for="input-intention">Choose your intention!</label>
-    <select name="input-intention" id="input-intention">
+    <select name="intention" id="input-intention">
       <option value="build">Build</option>
       <option value="quit">Quit</option>
     </select>
 
     <label for="input-time">Choose a goal period</label>
-    <select name="input-time" id="input-time">
+    <select name="period" id="input-time">
       <option value="daily">Daily</option>
       <option value="weekly">Weekly</option>
       <option value="monthly">Monthly</option>
@@ -20,10 +20,29 @@
     </select>
 
      <label for="input-goal">Choose your goal!</label>
-     <input type="number" id="input-goal" name="input-goal" min="1" >
+     <input type="number" id="input-goal" name="goal" min="1" >
 
      <label for="input-note">Add a note!</label>
-     <textarea name="input-note" id="input-note" cols="30" rows="10"></textarea>
+     <textarea name="note" id="input-note" cols="30" rows="10"></textarea>
+     
+     <label for="input-color">Color</label>
+    <select name="color" id="input-time">
+      <option value="tomato">Pretty red</option>
+      <option value="orange">Sunset</option>
+      <option value="dodgerblue">Easy blue</option>
+      <option value="mediumseagreen">Cozy Forest</option>
+      <option value="slateblue">Sky like</option>
+      <option value="violet">Violeta</option>
+      <option value="gray">Minimal Gray</option>
+    </select>
+
+     <div class="form-group">
+        <label for="file-upload">Image</label>
+        <div class="custom-file">
+          <input type="file" name="image" class="custom-file-input" id="customFile">
+          <label class="custom-file-label" for="customFile">Choose Pic</label>
+          </div>
+      </div>
 
      <button type="submit">Create Habit</button>
 

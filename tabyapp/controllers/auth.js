@@ -5,7 +5,7 @@ const User = require("../models/User")
 const uploader = require("../config/cloudinary")
     // Bcrypt to encrypt passwords
 const bcrypt = require("bcrypt")
-const bcryptSalt = 10
+const bcryptSalt = 12
 
 //============SIGNUP================
 

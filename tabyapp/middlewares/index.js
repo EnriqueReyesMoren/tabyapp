@@ -10,3 +10,8 @@ exports.ensureLogin = (req, res, next) => {
         res.redirect("/welcome")
     }
 }
+
+
+
+exports.catchErrors = controller => (req, res, next) =>
+    controller(req, res).catch(next)
