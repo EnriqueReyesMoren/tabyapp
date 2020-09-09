@@ -113,6 +113,20 @@ exports.addHabit = (req, res) => {
     res.render('addHabit')
 }
 
+//View Habit
+
+exports.viewHabit = (req, res) => {
+  res.render('habitPage')
+}
+
+exports.getMainPage = (req,res) => {
+  res.render('main')
+}
+
+exports.getBoost = (req,res) => {
+  res.render('boost')
+}
+
 //Logout
 exports.logout = (req, res) => {
     req.logout();

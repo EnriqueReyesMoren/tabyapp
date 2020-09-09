@@ -11,7 +11,7 @@
 	<div class="form-container sign-up-container">
 
 		<form action="/auth/signup" method="POST">
-			<h1>Create Taby Account</h1>
+			<h1>Create A Taby Account</h1>
             {{#if error}}
             <p style="color: red">{{error}}</p>
             {{/if}}
@@ -23,7 +23,6 @@
 		
       <a href="/auth/google">Register With Google</a>
       
-    
       <a href="/auth/facebook">Register With Facebook</a>
       
     
@@ -41,8 +40,7 @@
 			<input required type="password" name="password" id="input-password" placeholder="Password" />
 		
       <a href="/auth/google">Login With Google</a>
-      
-    
+
       <a href="/auth/facebook">Login With Facebook</a>
       
 			<button  type="submit">Sign In</button>
