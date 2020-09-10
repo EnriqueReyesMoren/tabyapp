@@ -9,8 +9,8 @@ const userSchema = new Schema({
     profilePic: {
         type: String
     },
-    habitsId: {
-        type: Schema.Types.ObjectId,
+    habits: {
+        type: [Schema.Types.ObjectId],
         ref: "Habit"
 
     }

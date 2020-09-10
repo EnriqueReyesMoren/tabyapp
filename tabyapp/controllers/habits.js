@@ -6,13 +6,21 @@ const User = require("../models/User")
 const Habit = require("../models/Habit")
 
 //Add Habit
-exports.addHabit = (req, res) => {
-    res.render('addHabit')
+
+
+exports.addHabit = async(req, res) => {
+
+    const result = await Habit.find()
+    const habits = result.reverse()
+    res.render('addHabit', { habits })
 }
 
+
+
 exports.getHabits = async(req, res) => {
-        const user = await Habit.find().populate("user")
-        res.render("index", { user })
+        const result = await Habit.find()
+        const habits = result.reverse()
+        res.render('habitsCards', { habits })
     }
     //View Habit
 
@@ -36,7 +44,7 @@ exports.createHabit = async(req, res) => {
     const { path: image } = req.file
     const { id: userTaby } = req.user
         // 2. creamos el producto en base al usuario en sesion
-    await Habit.create({
+    const newHabit = await Habit.create({
         name,
         intention,
         period,
@@ -45,6 +53,11 @@ exports.createHabit = async(req, res) => {
         color,
         image,
         userTaby
+    })
+    await User.findByIdAndUpdate(req.user.id, {
+        $push: {
+            habits: newHabit._id
+        }
     })
     res.redirect("/habit/main")
 }
