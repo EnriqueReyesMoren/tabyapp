@@ -28,66 +28,79 @@
     <link rel="stylesheet" href="/stylesheets/style.css">
     <link rel="stylesheet" href="/stylesheets/responsive.css">
 </head>
-
 <body>
 
     <div class="preloader">
-        <img src="/assets/images/loader.png" height="100" class="preloader__image" alt="">
+        <img src="assets/images/loader.png" height="100" class="preloader__image" alt="">
     </div><!-- /.preloader -->
 
     <div class="page-wrapper">
-        <header class="site-header-one stricky site-header-one__fixed-top">
-            <div class="container-fluid">
-                <div class="site-header-one__logo">
-                    <a href="index.html">
-                        <img src="assets/images/logo-1-1.png" width="129" alt="">
-                    </a>
-                    <span class="side-menu__toggler"><i class="fa fa-bars"></i></span><!-- /.side-menu__toggler -->
-                </div><!-- /.site-header-one__logo -->
-                <div class="main-nav__main-navigation">
-                    <ul class="main-nav__navigation-box one-page-scroll-menu">
-                        <li class="scrollToLink">
-                            <a href="/auth/profile">Home</a>
-                        </li>
-                        <li class="scrollToLink"><a href="/habit/main">Habits</a></li>
-                        <li class="scrollToLink"><a href="/mood/main">Moods</a></li>
-                        <li class="scrollToLink"><a href="/habit/add-habit">Add new Habbit</a></li>
-                        <li class="scrollToLink"><a href="/mood/add-mood">Add new Mood</a></li>
-                        
-                    </ul><!-- /.main-nav__navigation-box -->
-                </div><!-- /.main-nav__main-navigation -->
-                <div class="main-nav__right">
-                    <a href="#" class="thm-btn"><span>Logout</span></a>
-                </div><!-- /.main-nav__right -->
-            </div><!-- /.container-fluid -->
-        </header>
+      
 
-  <div class="container">
-    <br>
+<section class="cta-one">
+            <img src="/assets/images/shapes/cta-1-shape-1.png" class="cta-one__bg-shape-1" alt="">
+            <img src="/assets/images/shapes/cta-1-shape-2.png" class="cta-one__bg-shape-2" alt="">
+            <div class="container">
+              
+               
+                    
 
 
 
-<div class="row">
-  {{#each user.habits}}
-  <div class="col-xs-12 col-md-6 col-lg-4">
-    <div class="card">
-      <img src="{{image}}" class="card-img-top" alt="{{name}}">
-      <div class="card-body">
-        <h5 class="card-title">{{name}}</h5>
-        <p class="card-text">{{notes}}</p>
-        
-        <br>
-        <br>
-        <a href="/habit/{{_id}}" class="btn btn-primary btn-block">Go details</a>
-        <a href="/habit/update/{{_id}}">Edit this place</a><br>
-          <a href="/habit/delete/{{_id}}" class="btn btn-primary btn-block">Delete</a>
 
-        /places
-      </div>
-    </div>
-  </div>
-  {{/each}}
-</div>
+<form action="/habit/update/{{habit._id}}" method="POST" enctype="multipart/form-data">
+    <h2>Add a new Habit</h2>
+    <label for="input-habit">Name your habit</label>
+    <input type="text" id="input-habit" name="name" placeholder="{{habit.name}}" />
+
+    <label for="input-intention">Choose your intention!</label>
+    <select name="intention" id="input-intention">
+      <option value="build">Build</option>
+      <option value="quit">Quit</option>
+    </select>
+
+    <label for="input-time">Choose a goal period</label>
+    <select name="period" id="input-time">
+      <option value="daily">Daily</option>
+      <option value="weekly">Weekly</option>
+      <option value="monthly">Monthly</option>
+      <option value="yearly">Yearly</option>
+    </select>
+
+     <label for="input-goal">Choose your goal!</label>
+     <input type="number" id="input-goal" name="goal" min="1" >
+
+     <label for="input-note">Add a note!</label>
+     <textarea name="notes" id="input-note" cols="30" rows="10" placeholder="{{habit.notes}}"></textarea>
+     
+     <label for="input-color">Color</label>
+    <select name="color" id="input-time">
+      <option value="tomato">Pretty red</option>
+      <option value="orange">Sunset</option>
+      <option value="dodgerblue">Easy blue</option>
+      <option value="mediumseagreen">Cozy Forest</option>
+      <option value="slateblue">Sky like</option>
+      <option value="violet">Violeta</option>
+      <option value="gray">Minimal Gray</option>
+    </select>
+
+    {{!--  <div class="form-group">
+        <label for="file-upload">Image</label>
+        <div class="custom-file">
+          <input type="file" name="image" class="custom-file-input" id="customFile">
+          <label class="custom-file-label" for="customFile">Choose Pic</label>
+          </div>
+      </div> --}}
+
+     <button type="submit">Create Habit</button>
+
+    {{#if errorField}}
+    <p class="error">{{errorMessage}}</p>
+    {{/if}}
+</form>
+
+            </div>
+</section>
 
  <script src="/assets/js/jquery-3.5.0.min.js"></script>
     <script src="/assets/js/bootstrap.bundle.min.js"></script>
