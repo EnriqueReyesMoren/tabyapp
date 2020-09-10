@@ -8,7 +8,7 @@ const {
     createMood,
     getMoods,
     addMood,
-    viewMood,
+    /*  viewMood, */
     deleteMood,
     updateMoodView,
     updateMoodProcess
@@ -27,7 +27,7 @@ router.post("/add-habit",
 router.get('/add-mood', ensureLogin, addMood)
 
 //toHabitPage
-router.get('/:moodId', ensureLogin, viewMood)
+/* router.get('/:moodId', ensureLogin, viewMood) */
 
 router.get('/update/:moodId', ensureLogin, updateMoodView)
 

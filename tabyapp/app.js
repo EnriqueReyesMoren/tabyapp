@@ -90,8 +90,8 @@ app.use("/auth", auth);
 const habit = require("./routes/habit")
 app.use("/habit", habit);
 
-/* const mood = require("./routes/mood")
-app.use("/mood", mood); */
+const mood = require("./routes/mood")
+app.use("/mood", mood);
 
 
 module.exports = app;

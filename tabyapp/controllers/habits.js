@@ -24,10 +24,19 @@ exports.getHabits = async(req, res) => {
         res.render('habitsCards', { user })
     }
     //View Habit
-
 exports.viewHabit = (req, res) => {
-        res.render('habitPage')
+        res.render('habitPage',)
     }
+
+    //getHabitInfo
+    exports.getHabitInfo = async(req, res) => {
+      const habit = await Habit.findById(req.params.habitId)
+      console.log(habit)
+          /*  const habits = result.reverse() */
+      res.render('habitPage', habit)
+  }
+
+
     // Get Main Page
 exports.getMainPage = (req, res) => {
         res.render('main')
