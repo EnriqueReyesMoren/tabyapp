@@ -7,37 +7,33 @@ const routeGuard = require('../config/route-guard');
 const {
     createMood,
     getMoods,
-    addMood
+    addMood,
+    viewMood,
+    deleteMood,
+    updateMoodView,
+    updateMoodProcess
 } = require("../controllers/mood")
 
 
-/* router.get("/", catchErrors(getAllHabits))
-router.get("/main", (req, res) => {
-    res.render("main", req.user)
-}) */
-
 router.get("/main", ensureLogin, catchErrors(getMoods))
 
-router.get('/add-mood', addMood)
-
-router.post("/add-mood",
+router.post("/add-habit",
     ensureLogin,
-    catchErrors(createMood))
+    catchErrors(createMood)
+)
 
 
+//toAddHabitPage
+router.get('/add-mood', ensureLogin, addMood)
 
+//toHabitPage
+router.get('/:moodId', ensureLogin, viewMood)
 
+router.get('/update/:moodId', ensureLogin, updateMoodView)
+
+router.post('/update/:moodId', ensureLogin, updateMoodProcess)
+
+router.get('/delete/:moodId', ensureLogin, deleteMood)
 
 
 module.exports = router
-
-/* router.get("/habit/:habitId", habitDetail)
-router.get("/habits/end", deleteHabit)
-router.get("/habit/end/:habitId", achieveHabit)
- */
-
-
-
-//toHabitPage
-/* router.get('/:addId', viewMood)
- */
