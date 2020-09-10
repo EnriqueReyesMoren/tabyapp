@@ -5,6 +5,7 @@ const User = require("../models/User")
 const uploader = require("../config/cloudinary")
     // Bcrypt to encrypt passwords
 const bcrypt = require("bcrypt")
+const { find, findByIdAndUpdate } = require("../models/User")
 const bcryptSalt = 12
 
 //============SIGNUP================
@@ -128,6 +129,21 @@ exports.facebookRedirect = passport.authenticate('facebook', {
 // exports.getBoost = (req,res) => {
 //   res.render('boost')
 // }
+
+
+exports.updatePic = async (req,res) => {
+ const { path: profilePic } = req.file
+
+  await User.findByIdAndUpdate({ 
+  profilePic
+})
+res.redirect("/habit/profile")
+
+
+  await User.findByIdAndUpdate( req.user, { profilePic: req.file.path}  )
+  res.redirect('/profile')
+}
+
 
 //Logout
 exports.logout = (req, res) => {
