@@ -13,6 +13,11 @@ const userSchema = new Schema({
         type: [Schema.Types.ObjectId],
         ref: "Habit"
 
+    },
+    moods: {
+        type: [Schema.Types.ObjectId],
+        ref: "Moods"
+
     }
 }, {
     timestamps: {

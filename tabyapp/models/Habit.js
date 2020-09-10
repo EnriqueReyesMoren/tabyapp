@@ -5,7 +5,7 @@ const habitSchema = new Schema({
         type: String,
         trim: true,
         required: [true, "Your habit needs a name!"],
-        unique: true
+
     },
     intention: {
         type: String,

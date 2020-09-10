@@ -77,10 +77,13 @@ const index = require('./routes');
 app.use('/', index);
 
 const auth = require("./routes/auth");
-app.use("/auth", auth)
+app.use("/auth", auth);
 
 const habit = require("./routes/habit")
-app.use("/habit", habit)
+app.use("/habit", habit);
+
+const mood = require("./routes/mood")
+app.use("/mood", mood);
 
 
 module.exports = app;
