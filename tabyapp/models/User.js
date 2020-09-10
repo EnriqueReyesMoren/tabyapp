@@ -9,16 +9,16 @@ const userSchema = new Schema({
     profilePic: {
         type: String
     },
-    habits: {
-        type: [Schema.Types.ObjectId],
+    habits: [{
+        type: Schema.Types.ObjectId,
         ref: "Habit"
 
-    },
-    moods: {
-        type: [Schema.Types.ObjectId],
+    }],
+    moods: [{
+        type: Schema.Types.ObjectId,
         ref: "Moods"
 
-    }
+    }]
 }, {
     timestamps: {
         createdAt: "created_at",

@@ -18,12 +18,10 @@ exports.addHabit = async(req, res) => {
 
 
 exports.getHabits = async(req, res) => {
-        const result = await User.findById({ _id: req.params.userId }).populate({
-            path: 'habits',
-            model: 'Habit',
-        })
-        const habits = result.reverse()
-        res.render('habitsCards', { habits })
+        const user = await User.findById(req.user.id).populate("habits")
+        console.log(user)
+            /*  const habits = result.reverse() */
+        res.render('habitsCards', { user })
     }
     //View Habit
 

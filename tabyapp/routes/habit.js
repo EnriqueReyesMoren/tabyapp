@@ -38,10 +38,10 @@ router.get("/habit/end/:habitId", achieveHabit)
 router.get('/add-habit', addHabit)
 
 //toHabitPage
-router.get('/habit/:habitId', viewHabit)
+router.get('/:habitId', viewHabit)
 
 // toMainPage
-router.get("/habit/main", getMainPage)
+router.get("/main", getMainPage)
 
 //toBoostPage
 router.get("/boost", getBoost)
