@@ -18,7 +18,7 @@ exports.addHabit = async(req, res) => {
 
 
 exports.getHabits = async(req, res) => {
-        const result = await Habit.find()
+        const result = await User.find()
         const habits = result.reverse()
         res.render('habitsCards', { habits })
     }

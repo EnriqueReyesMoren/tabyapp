@@ -1,23 +1,123 @@
-<h1>Profile:</h1>
-<hr>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piloz. || Home One || App Landing HTML Template</title>
+    <!-- favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicons/favicon-16x16.png">
+    <link rel="manifest" href="assets/images/favicons/site.webmanifest">
+    <!-- plugin scripts -->
+     <link
+        href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Prata&display=swap" rel="stylesheet">
 
-<p>Hello {{user.username}}</p>
+    <link rel="stylesheet" href="../stylesheets/bootstrap.min.css">
+    <link rel="stylesheet" href="../stylesheets/animate.min.css">
+    <link rel="stylesheet" href="../stylesheets/bootstrap-select.min.css">
+    <link rel="stylesheet" href="../stylesheets/bootstrap-datepicker.min.css">
+    <link rel="stylesheet" href="../stylesheets/fontawesome-all.min.css">
+    <link rel="stylesheet" href="../stylesheets/magnific-popup.css">
+    <link rel="stylesheet" href="../stylesheets/owl.carousel.min.css">
+    <link rel="stylesheet" href="../stylesheets/owl.theme.default.min.css">
+    <link rel="stylesheet" href="../stylesheets/swiper.min.css">
+    <link rel="stylesheet" href="../stylesheets/piloz-icons.css">
 
-<img src="{{user.profilePic}}" alt="{{user.username}}">
+    <!-- theme styles -->
+    <link rel="stylesheet" href="../stylesheets/style.css">
+    <link rel="stylesheet" href="../stylesheets/responsive.css">
+</head>
 
-<form action="/profile-pic" method="POST" enctype="multipart/form-data"></form>
-<label for="input-profile">Update Profile Pic</label>
-<input type="file" id="input-profile" name="input-profile">
+<body>
 
+    <div class="preloader">
+        <img src="assets/images/loader.png" height="100" class="preloader__image" alt="">
+    </div><!-- /.preloader -->
 
-<p>Email</p> 
+    <div class="page-wrapper">
+        <header class="site-header-one stricky site-header-one__fixed-top">
+            <div class="container-fluid">
+                <div class="site-header-one__logo">
+                    <a href="index.html">
+                        <img src="assets/images/logo-1-1.png" width="129" alt="">
+                    </a>
+                    <span class="side-menu__toggler"><i class="fa fa-bars"></i></span><!-- /.side-menu__toggler -->
+                </div><!-- /.site-header-one__logo -->
+                <div class="main-nav__main-navigation">
+                    <ul class="main-nav__navigation-box one-page-scroll-menu">
+                        <li class="scrollToLink">
+                            <a href="/auth/profile">Home</a>
+                        </li>
+                        <li class="scrollToLink"><a href="#features">Habits</a></li>
+                        <li class="scrollToLink"><a href="#pricing">Moods</a></li>
+                        <li class="scrollToLink"><a href="#testimonials">Add new Habbit</a></li>
+                        <li class="scrollToLink"><a href="#screens">Add new Mood</a></li>
+                        
+                    </ul><!-- /.main-nav__navigation-box -->
+                </div><!-- /.main-nav__main-navigation -->
+                <div class="main-nav__right">
+                    <a href="#" class="thm-btn"><span>Logout</span></a>
+                </div><!-- /.main-nav__right -->
+            </div><!-- /.container-fluid -->
+        </header><!-- /.site-header-one -->
 
-<p>{{user.email}}</p>
+<section class="cta-one">
+            <img src="../assets/images/shapes/cta-1-shape-1.png" class="cta-one__bg-shape-1" alt="">
+            <img src="../assets/images/shapes/cta-1-shape-2.png" class="cta-one__bg-shape-2" alt="">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-6 col-lg-6">
+                        <div class="cat_one_moc wow fadeInUp" data-wow-duration="1500ms">
+                            <div class="cat_one_moc-bg"
+                                style="background-image: url(../assets/images/shapes/cta-1-shape-3.png)"></div>
+                           <img src="{{user.profilePic}}" alt="{{user.username}}">
+                        </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6">
+                        <div class="cat_one_content">
+                            <div class="block-title">
+                                <p>Hello {{user.username}}</p>
+                                <h3>Let´s start<br>creating cool habits</h3>
+                            </div>
+                            <a href="/habit/add-habit" class="thm-btn cta-one__btn">Add a new habit</a>
+                            <a href="/habit/main" class="thm-btn cta-one__btn">Go to the habit page</a>
+                           
+                            <div class="cta-one__text">
+                                <p>Email</p> 
 
-<a href="/habit/add-habit">Add a new habit</a>
+                                <p>{{user.email}}</p>
 
-<a href="/habit/main">HabitPage</a>
+                            </div>
 
+                            <form action="/profile-pic" method="POST" enctype="multipart/form-data"></form>
+                            <label for="input-profile">Update Profile Pic</label>
+                            <input type="file" id="input-profile" name="input-profile">
 
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
 <a href="">logout</a>
+
+ <script src="../assets/js/jquery-3.5.0.min.js"></script>
+    <script src="../assets/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/bootstrap-select.min.js"></script>
+    <script src="../assets/js/bootstrap-datepicker.min.js"></script>
+    <script src="../assets/js/isotope.js"></script>
+    <script src="../assets/js/jquery.ajaxchimp.min.js"></script>
+    <script src="../assets/js/jquery.waypoints.min.js"></script>
+    <script src="../assets/js/jquery.counterup.min.js"></script>
+    <script src="../assets/js/jquery.magnific-popup.min.js"></script>
+    <script src="../assets/js/jquery.validate.min.js"></script>
+    <script src="../assets/js/owl.carousel.min.js"></script>
+    <script src="../assets/js/TweenMax.min.js"></script>
+    <script src="../assets/js/swiper.min.js"></script>
+    <script src="../assets/js/wow.js"></script>
+    <script src="../assets/js/jquery.easing.min.js"></script>
+    <script src="../assets/js/theme.js"></script>
+</body>
+

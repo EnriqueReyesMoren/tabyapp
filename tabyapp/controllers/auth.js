@@ -65,7 +65,7 @@ exports.loginView = (req, res) => {
 
 exports.loginProcess = passport.authenticate('local', {
         successRedirect: "/auth/profile/",
-        failureRedirect: '/',
+        failureRedirect: '/welcome',
         failureFlash: true,
         passReqToCallback: true
     })
