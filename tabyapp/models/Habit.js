@@ -37,6 +37,10 @@ const habitSchema = new Schema({
         type: String
     },
 
+    tracker: {
+      type: [String]
+    },
+
     userTaby: {
         type: Schema.Types.ObjectId,
         ref: "User"
