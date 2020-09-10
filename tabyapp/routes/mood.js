@@ -2,6 +2,8 @@ const express = require("express")
 const router = express.Router()
 const { ensureLogin, catchErrors } = require("../middlewares")
 
+const routeGuard = require('../config/route-guard');
+
 const {
     createMood,
     getMoods,

@@ -3,6 +3,8 @@ const router = express.Router()
 const { ensureLogin, catchErrors } = require("../middlewares")
 const uploader = require("../config/cloudinary")
 
+const routeGuard = require('../config/route-guard');
+
 const {
     createHabit,
     getHabits,
