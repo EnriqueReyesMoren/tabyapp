@@ -18,7 +18,7 @@ router.get("/main", (req, res) => {
     res.render("main", req.user)
 }) */
 
-router.get("/habit/new", ensureLogin, getHabits)
+router.get("/main", ensureLogin, catchErrors(getHabits))
 
 router.post("/add-habit",
     ensureLogin,
@@ -36,7 +36,7 @@ router.get("/habit/end/:habitId", achieveHabit)
 router.get('/add-habit', addHabit)
 
 //toHabitPage
-router.get('/habit', viewHabit)
+router.get('/habit/:habitId', viewHabit)
 
 // toMainPage
 router.get("/habit/main", getMainPage)

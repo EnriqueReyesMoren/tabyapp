@@ -48,7 +48,7 @@ exports.signupProcess = async(req, res) => {
     }
 
     newUser.save().then(() => {
-            res.redirect("/")
+            res.redirect("/welcome")
         })
         .catch(err => {
             console.log(err)
@@ -61,12 +61,12 @@ exports.signupProcess = async(req, res) => {
 
 exports.loginView = (req, res) => {
     console.log(req.session)
-    res.render("/", { message: req.flash("error") })
+    res.render("/welcome", { message: req.flash("error") })
 }
 
 exports.loginProcess = passport.authenticate('local', {
         successRedirect: "/auth/profile/",
-        failureRedirect: '/',
+        failureRedirect: '/welcome',
         failureFlash: true,
         passReqToCallback: true
     })
@@ -105,10 +105,10 @@ exports.facebookProcess = passport.authenticate('facebook', {
 })
 
 exports.facebookRedirect = passport.authenticate('facebook', {
-        successRedirect: "/auth/profile",
-        failureRedirect: "/welcome",
-        failureFlash: true
-    })
+    successRedirect: "/auth/profile",
+    failureRedirect: "/welcome",
+    failureFlash: true
+})
 
 
 //     //Add Habit
@@ -150,4 +150,3 @@ exports.logout = (req, res) => {
     req.logout();
     res.redirect('/welcome')
 }
-
