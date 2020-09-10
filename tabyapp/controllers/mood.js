@@ -25,10 +25,10 @@ exports.getMoods = async(req, res) => {
     }
     //View Habit
 
-exports.viewHabit = (req, res) => {
+/* exports.viewHabit = (req, res) => {
     res.render('moodPage')
 }
-
+ */
 
 
 

@@ -71,3 +71,35 @@ exports.createHabit = async(req, res) => {
     })
     res.redirect("/habit/main")
 }
+
+exports.updateHabitView = async(req, res) => {
+    const habit = await Habit.findById(req.params.habitId)
+    res.render('updateHabit', {
+        user: req.user,
+        habit
+    })
+}
+
+
+exports.updateHabitProcess = async(req, res) => {
+    const { name, intention, period, goal, notes, color } = req.body
+        /*  const { path: image } = req.file */
+    const { id: userTaby } = req.user
+    await Habit.findByIdAndUpdate(req.params.habitId, {
+        name,
+        intention,
+        period,
+        goal,
+        notes,
+        color,
+        /* image, */
+        userTaby
+    })
+
+    res.redirect(`/habit/main`)
+}
+
+exports.deleteHabit = async(req, res) => {
+    await Habit.findByIdAndDelete(req.params.habitId)
+    res.redirect("/habit/main")
+}

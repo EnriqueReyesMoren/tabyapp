@@ -13,20 +13,20 @@
         rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Prata&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="../stylesheets/bootstrap.min.css">
-    <link rel="stylesheet" href="../stylesheets/animate.min.css">
-    <link rel="stylesheet" href="../stylesheets/bootstrap-select.min.css">
-    <link rel="stylesheet" href="../stylesheets/bootstrap-datepicker.min.css">
-    <link rel="stylesheet" href="../stylesheets/fontawesome-all.min.css">
-    <link rel="stylesheet" href="../stylesheets/magnific-popup.css">
-    <link rel="stylesheet" href="../stylesheets/owl.carousel.min.css">
-    <link rel="stylesheet" href="../stylesheets/owl.theme.default.min.css">
-    <link rel="stylesheet" href="../stylesheets/swiper.min.css">
-    <link rel="stylesheet" href="../stylesheets/piloz-icons.css">
+    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+    <link rel="stylesheet" href="/stylesheets/animate.min.css">
+    <link rel="stylesheet" href="/stylesheets/bootstrap-select.min.css">
+    <link rel="stylesheet" href="/stylesheets/bootstrap-datepicker.min.css">
+    <link rel="stylesheet" href="/stylesheets/fontawesome-all.min.css">
+    <link rel="stylesheet" href="/stylesheets/magnific-popup.css">
+    <link rel="stylesheet" href="/stylesheets/owl.carousel.min.css">
+    <link rel="stylesheet" href="/stylesheets/owl.theme.default.min.css">
+    <link rel="stylesheet" href="/stylesheets/swiper.min.css">
+    <link rel="stylesheet" href="/stylesheets/piloz-icons.css">
 
     <!-- theme styles -->
-    <link rel="stylesheet" href="../stylesheets/style.css">
-    <link rel="stylesheet" href="../stylesheets/responsive.css">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="/stylesheets/responsive.css">
 </head>
 <body>
 
@@ -38,8 +38,8 @@
       
 
 <section class="cta-one">
-            <img src="../assets/images/shapes/cta-1-shape-1.png" class="cta-one__bg-shape-1" alt="">
-            <img src="../assets/images/shapes/cta-1-shape-2.png" class="cta-one__bg-shape-2" alt="">
+            <img src="/assets/images/shapes/cta-1-shape-1.png" class="cta-one__bg-shape-1" alt="">
+            <img src="/assets/images/shapes/cta-1-shape-2.png" class="cta-one__bg-shape-2" alt="">
             <div class="container">
               
                
@@ -48,10 +48,10 @@
 
 
 
-<form action="/habit/add-habit" method="POST" enctype="multipart/form-data">
+<form action="/habit/update/{{habit._id}}" method="POST" >
     <h2>Add a new Habit</h2>
     <label for="input-habit">Name your habit</label>
-    <input type="text" id="input-habit" name="name" placeholder="Listen to Frank Ocean everyday!" />
+    <input type="text" id="input-habit" name="name" placeholder="{{habit.name}}" />
 
     <label for="input-intention">Choose your intention!</label>
     <select name="intention" id="input-intention">
@@ -71,7 +71,7 @@
      <input type="number" id="input-goal" name="goal" min="1" >
 
      <label for="input-note">Add a note!</label>
-     <textarea name="notes" id="input-note" cols="30" rows="10"></textarea>
+     <textarea name="notes" id="input-note" cols="30" rows="10" placeholder="{{habit.notes}}"></textarea>
      
      <label for="input-color">Color</label>
     <select name="color" id="input-time">
@@ -84,13 +84,13 @@
       <option value="gray">Minimal Gray</option>
     </select>
 
-     <div class="form-group">
+    {{!--  <div class="form-group">
         <label for="file-upload">Image</label>
         <div class="custom-file">
           <input type="file" name="image" class="custom-file-input" id="customFile">
           <label class="custom-file-label" for="customFile">Choose Pic</label>
           </div>
-      </div>
+      </div> --}}
 
      <button type="submit">Create Habit</button>
 
@@ -102,20 +102,20 @@
             </div>
 </section>
 
- <script src="../assets/js/jquery-3.5.0.min.js"></script>
-    <script src="../assets/js/bootstrap.bundle.min.js"></script>
-    <script src="../assets/js/bootstrap-select.min.js"></script>
-    <script src="../assets/js/bootstrap-datepicker.min.js"></script>
-    <script src="../assets/js/isotope.js"></script>
-    <script src="../assets/js/jquery.ajaxchimp.min.js"></script>
-    <script src="../assets/js/jquery.waypoints.min.js"></script>
-    <script src="../assets/js/jquery.counterup.min.js"></script>
-    <script src="../assets/js/jquery.magnific-popup.min.js"></script>
-    <script src="../assets/js/jquery.validate.min.js"></script>
-    <script src="../assets/js/owl.carousel.min.js"></script>
-    <script src="../assets/js/TweenMax.min.js"></script>
-    <script src="../assets/js/swiper.min.js"></script>
-    <script src="../assets/js/wow.js"></script>
-    <script src="../assets/js/jquery.easing.min.js"></script>
-    <script src="../assets/js/theme.js"></script>
+ <script src="/assets/js/jquery-3.5.0.min.js"></script>
+    <script src="/assets/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/js/bootstrap-select.min.js"></script>
+    <script src="/assets/js/bootstrap-datepicker.min.js"></script>
+    <script src="/assets/js/isotope.js"></script>
+    <script src="/assets/js/jquery.ajaxchimp.min.js"></script>
+    <script src="/assets/js/jquery.waypoints.min.js"></script>
+    <script src="/assets/js/jquery.counterup.min.js"></script>
+    <script src="/assets/js/jquery.magnific-popup.min.js"></script>
+    <script src="/assets/js/jquery.validate.min.js"></script>
+    <script src="/assets/js/owl.carousel.min.js"></script>
+    <script src="/assets/js/TweenMax.min.js"></script>
+    <script src="/assets/js/swiper.min.js"></script>
+    <script src="/assets/js/wow.js"></script>
+    <script src="/assets/js/jquery.easing.min.js"></script>
+    <script src="/assets/js/theme.js"></script>
 </body>
