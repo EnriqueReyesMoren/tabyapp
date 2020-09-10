@@ -18,7 +18,7 @@ exports.addMood = async(req, res) => {
 
 
 exports.getMoods = async(req, res) => {
-        const result = await User.find()
+        const result = await User.find().populate("moods")
         const mood = result.reverse()
         res.render('moodCards', { mood })
     }

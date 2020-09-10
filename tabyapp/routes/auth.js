@@ -5,6 +5,9 @@ const { ensureLogin, catchErrors } = require("../middlewares")
 
 const uploader = require("../config/cloudinary")
 
+const routeGuard = require('../config/route-guard');
+
+
 
 const {
     signupView,

@@ -12,6 +12,10 @@ const path = require('path');
 const session = require("express-session")
 const MongoStore = require("connect-mongo")(session)
 const flash = require("connect-flash");
+
+
+
+const bindUserToViewLocals = require('./config/user-locals');
 //cambiar variable de entorno de DB
 //mongodb+srv://dieglitter:123@cluster0.bido3.mongodb.net/taby-app?retryWrites=true&w=majority
 mongoose
@@ -33,6 +37,11 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+/* app.use(bindUserToViewLocals); */
+app.use(express.json());
+app.use(express.urlencoded({
+    extended: true
+}));
 
 // Express View engine setup
 
@@ -54,7 +63,6 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 app.locals.title = 'TABY - Track A Better You';
 
 //sessiones 
-
 app.use(
     session({
         secret: process.env.SECRET,
