@@ -51,8 +51,8 @@
                         </li>
                         <li class="scrollToLink "><a href="/habit/main">Habits</a></li>
                         <li class="scrollToLink current"><a href="/mood/main">Moods</a></li>
-                        <li class="scrollToLink"><a href="/habit/add-habit">Add new Habbit</a></li>
-                        <li class="scrollToLink"><a href="/mood/add-mood">Add new Mood</a></li>
+                        <li class="scrollToLink"><a href="/habit/add-habit">Add New Habbit</a></li>
+                        <li class="scrollToLink"><a href="/mood/add-mood">Update Your Mood</a></li>
                         
                     </ul><!-- /.main-nav__navigation-box -->
                 </div><!-- /.main-nav__main-navigation -->
@@ -66,8 +66,8 @@
  <section id="features" class="service-one">
             <div class="container">
                 <div class="block-title text-center">
-                    <p>Track your Moods {{name}}</p>
-                    <h3>Don´t forget to share your Mood</h3>
+                    {{!-- <p>Track your Moods {{name}}</p> --}}
+                    <h3>Don´t forget to update your Mood</h3>
                 </div>
                 <div class="row" style="display:flex;  justify-content:flex-end; width:inherit;">
                     {{#with user.moods}}
@@ -89,7 +89,7 @@
                             <ul class="list-unstyled pricing-one__list">
                                 <li><i></i>In a scale of: {{scale}}</li>
                             </ul>
-                            <a href="/mood/{{_id}}" class="thm-btn pricing-one__btn"><span>Go details</span></a>
+                            <a href="/mood/{{_id}}" class="thm-btn pricing-one__btn"><span>Details</span></a>
                             <br>
                             <br> 
                            {{!--  <a href="/habit/update/{{_id}}" class="thm-btn pricing-one__btn">Edit habit</a>

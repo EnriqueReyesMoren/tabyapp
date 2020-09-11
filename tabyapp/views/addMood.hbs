@@ -51,8 +51,8 @@
                         </li>
                         <li class="scrollToLink"><a href="/habit/main">Habits</a></li>
                         <li class="scrollToLink"><a href="/mood/main">Moods</a></li>
-                        <li class="scrollToLink" ><a href="/habit/add-habit">Add new Habbit</a></li>
-                        <li class="scrollToLink current"><a href="/mood/add-mood">Add new Mood</a></li>
+                        <li class="scrollToLink" ><a href="/habit/add-habit">Add New Habit</a></li>
+                        <li class="scrollToLink current"><a href="/mood/add-mood">Update Your Mood</a></li>
                         
                     </ul><!-- /.main-nav__navigation-box -->
                 </div><!-- /.main-nav__main-navigation -->
@@ -76,9 +76,9 @@
 
 
 <form action="/mood/add-mood" method="POST">
-    <h2>Add a new Mood</h2>
+    <h2>Update Your Mood</h2>
     
-    <label for="input-intention">Choose your Mood!</label>
+    <label for="input-intention">Pick Your Mood!</label>
     <select name="mood" id="input-intention">
       <option value="excited">Excited</option>
       <option value="happy">Happy</option>
@@ -98,7 +98,7 @@
     </select>
 
      <label for="input-note">Add a note!</label>
-     <textarea name="note" id="input-note" cols="30" rows="10"></textarea>
+     <textarea name="note" id="input-note" cols="30" rows="10" placeholder="I am very happy because I bought a new computer!"></textarea>
      
      
 
