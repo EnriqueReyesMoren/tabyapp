@@ -21,4 +21,7 @@ Thank you for taking the time to review our work. We appreciate it deeply.
 * CLOUDINARY_SECRET<br>
 
 
-##### This site was made by Diego Guerrero (https://github.com/dieglitter) & Manu Reyes (https://github.com/EnriqueReyesMoren/)at IronHack Mexico
+#### This site was made by:
+* Diego Guerrero (https://github.com/dieglitter) 
+* Manu Reyes (https://github.com/EnriqueReyesMoren/)
+at IronHack Mexico.
