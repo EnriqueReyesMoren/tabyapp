@@ -8,17 +8,17 @@ Thank you for taking the time to review our work. We appreciate it deeply.
 ![alt text](https://res.cloudinary.com/dieglitter/image/upload/v1599832682/taby/taby-DosNnU0U4AAlZ6I.jpg.jpg "Taby App")
 
 ### Variables
--PORT=3000
--ENV=development
--SECRET=*Whatever you want*
--DB= *Local or remote DB such as MongoDB*
-GOOGLE_ID
-GOOGLE_SECRET
-FACEBOOK_ID
-FACEBOOK_SECRET
-CLOUDINARY_NAME
-CLOUDINARY_KEY
-CLOUDINARY_SECRET
+-PORT=3000<br>
+-ENV=development<br>
+-SECRET=*Whatever you want*<br>
+-DB= *Local or remote DB such as MongoDB*<br>
+GOOGLE_ID<br>
+GOOGLE_SECRET<br>
+FACEBOOK_ID<br>
+FACEBOOK_SECRET<br>
+CLOUDINARY_NAME<br>
+CLOUDINARY_KEY<br>
+CLOUDINARY_SECRET<br>
 
 
-### This site was made by Diego Guerrero (https://github.com/dieglitter) & Manu Reyes (https://github.com/EnriqueReyesMoren/)at IronHack Mexico
+##### This site was made by Diego Guerrero (https://github.com/dieglitter) & Manu Reyes (https://github.com/EnriqueReyesMoren/)at IronHack Mexico
