@@ -7,6 +7,10 @@
 <p>{{ notes }}</p>
 
 <p>{{ unit }}</p>
+<p id="tracker">
+  {{tracker}}
+</p>
+
 
 <form action="/habit/track/{{_id}}" method="POST">
 <label for="input-tracker">How many {{ unit }} did you use today? </label>
@@ -27,6 +31,10 @@
       labelArray.push(i)
  }
 
+ let newTracker = {{tracker}}
+ let num = newTracker.map(e=> parseInt(e))
+
+ 
 
 window.onload = () => { 
 var ctx = document.getElementById('myChart').getContext("2d");
@@ -36,7 +44,7 @@ var myChart = new Chart(ctx, {
         labels: labelArray,
         datasets: [{
             label: '{{ name }}',
-            data: [12,19, 3, 5, 2, 3],
+            data: num,
             backgroundColor: '#5E00EC',
             borderColor: [
                 'rgba(255, 99, 132, 1)',

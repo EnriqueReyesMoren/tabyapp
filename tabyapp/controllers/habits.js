@@ -74,14 +74,16 @@ exports.createHabit = async(req, res) => {
 }
 
 exports.tracker = async(req,res) => {
+  const { habitId } = req.params 
   const { tracker } = req.body
-  await Habit.findByIdAndUpdate( req.user.id, {
+  await Habit.findByIdAndUpdate( habitId , {
     $push: {
-      tracker: tracker
+      tracker
     }
-  })
-  res.redirect("/habit/:habitId")
+  },{new: true})
+  res.redirect(`/habit/${habitId}`)
 } 
+
 
 exports.updateHabitView = async(req, res) => {
     const habit = await Habit.findById(req.params.habitId)
@@ -90,6 +92,7 @@ exports.updateHabitView = async(req, res) => {
         habit
     })
 }
+
 
 
 exports.updateHabitProcess = async(req, res) => {

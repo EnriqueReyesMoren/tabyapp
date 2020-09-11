@@ -21,11 +21,8 @@ const {
     profile,
     getContent,
     welcome,
-    updatePic
-    // addHabit,
-    // viewHabit,
-    // getMainPage,
-    // getBoost
+    updatePic,
+    logout
 } = require("../controllers/auth")
 
 router.get("/", signupView)
@@ -44,18 +41,6 @@ router.get('/profile', profile)
 router.get('/profile/:id', getContent)
 
 router.post('/profile-pic', uploader.single("profilePic"), catchErrors(updatePic))
-
-// //toAddHabitPage
-// router.get('/add-habit', addHabit)
-
-// //toHabitPage
-// router.get('/habit', viewHabit)
-
-// // toMainPage
-// router.get("/main", getMainPage)
-
-// //toBoostPage
-// router.get("/boost", getBoost)
 
 
 
