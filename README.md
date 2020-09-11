@@ -24,4 +24,4 @@ Thank you for taking the time to review our work. We appreciate it deeply.
 #### This site was made by:
 * Diego Guerrero (https://github.com/dieglitter) 
 * Manu Reyes (https://github.com/EnriqueReyesMoren/)<br>
-at IronHack Mexico.
+#### at IronHack Mexico.
