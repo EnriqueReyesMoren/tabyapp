@@ -1,0 +1,108 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taby App</title>
+    <!-- favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicons/favicon-16x16.png">
+    <link rel="manifest" href="assets/images/favicons/site.webmanifest">
+    <!-- plugin scripts -->
+     <link
+        href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Prata&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+    <link rel="stylesheet" href="/stylesheets/animate.min.css">
+    <link rel="stylesheet" href="/stylesheets/bootstrap-select.min.css">
+    <link rel="stylesheet" href="/stylesheets/bootstrap-datepicker.min.css">
+    <link rel="stylesheet" href="/stylesheets/fontawesome-all.min.css">
+    <link rel="stylesheet" href="/stylesheets/magnific-popup.css">
+    <link rel="stylesheet" href="/stylesheets/owl.carousel.min.css">
+    <link rel="stylesheet" href="/stylesheets/owl.theme.default.min.css">
+    <link rel="stylesheet" href="/stylesheets/swiper.min.css">
+    <link rel="stylesheet" href="/stylesheets/piloz-icons.css">
+
+    <!-- theme styles -->
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="/stylesheets/responsive.css">
+</head>
+<body>
+
+    <div class="preloader">
+        <img src="assets/images/loader.png" height="100" class="preloader__image" alt="">
+    </div><!-- /.preloader -->
+
+    <div class="page-wrapper">
+      
+
+<section class="cta-one">
+            <img src="/assets/images/shapes/cta-1-shape-1.png" class="cta-one__bg-shape-1" alt="">
+            <img src="/assets/images/shapes/cta-1-shape-2.png" class="cta-one__bg-shape-2" alt="">
+            <div class="container">
+              
+               
+                    
+
+
+
+
+<form action="/habit/update/{{mood._id}}" method="POST" >
+   <form action="/mood/add-mood" method="POST">
+    <h2>Add a new Mood</h2>
+    
+    <label for="input-intention">Choose your Mood!</label>
+    <select name="mood" id="input-intention">
+      <option value="Excited">Excited</option>
+      <option value="Happy">Happy</option>
+      <option value="Neutral">Neutral</option>
+      <option value="Anxious">Anxious</option>
+      <option value="Sad">Sad</option>
+     
+    </select>
+
+    <label for="input-time">How intense is that feeling</label>
+    <select name="scale" id="input-time">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+    </select>
+
+     <label for="input-note">Add a note!</label>
+     <textarea name="note" id="input-note" cols="30" rows="10"></textarea>
+     
+     
+
+
+     <button type="submit">Create Mood</button>
+
+    {{#if errorField}}
+    <p class="error">{{errorMessage}}</p>
+    {{/if}}
+</form>
+
+            </div>
+</section>
+
+            
+
+ <script src="/assets/js/jquery-3.5.0.min.js"></script>
+    <script src="/assets/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/js/bootstrap-select.min.js"></script>
+    <script src="/assets/js/bootstrap-datepicker.min.js"></script>
+    <script src="/assets/js/isotope.js"></script>
+    <script src="/assets/js/jquery.ajaxchimp.min.js"></script>
+    <script src="/assets/js/jquery.waypoints.min.js"></script>
+    <script src="/assets/js/jquery.counterup.min.js"></script>
+    <script src="/assets/js/jquery.magnific-popup.min.js"></script>
+    <script src="/assets/js/jquery.validate.min.js"></script>
+    <script src="/assets/js/owl.carousel.min.js"></script>
+    <script src="/assets/js/TweenMax.min.js"></script>
+    <script src="/assets/js/swiper.min.js"></script>
+    <script src="/assets/js/wow.js"></script>
+    <script src="/assets/js/jquery.easing.min.js"></script>
+    <script src="/assets/js/theme.js"></script>
+</body>

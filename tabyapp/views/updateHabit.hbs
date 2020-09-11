@@ -49,7 +49,7 @@
 
 
 <form action="/habit/update/{{habit._id}}" method="POST" >
-    <h2>Add a new Habit</h2>
+    <h2>Update Habit</h2>
     <label for="input-habit">Name your habit</label>
     <input type="text" id="input-habit" name="name" placeholder="{{habit.name}}" />
 
@@ -92,7 +92,7 @@
           </div>
       </div> --}}
 
-     <button type="submit">Create Habit</button>
+     <button type="submit">Update Habit</button>
 
     {{#if errorField}}
     <p class="error">{{errorMessage}}</p>
