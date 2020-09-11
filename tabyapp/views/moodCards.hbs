@@ -69,7 +69,7 @@
                     <h3>Don´t forget to share your Mood</h3>
                 </div>
                 <div class="row">
-                    {{#each user.moods}}
+                    {{#with user.moods}}
                     <div class=" col-xl-3 col-lg-3 col-md-6 wow fadeInLeft" data-wow-duration="1500ms">
                         <div class="service-one__single">
                             <div class="service-icon">
@@ -97,11 +97,13 @@
                             <a href="/habit/delete/{{_id}}" class="thm-btn pricing-one__btn">Delete</a> --}}
                         </div>
                     </div>
-                    {{/each}}
+                    {{/with}}
                 </div>
             </div>
+            
              
         </section>
+        
 
 <script src="https://kit.fontawesome.com/c6832721e6.js" crossorigin="anonymous"></script>
  <script src="/assets/js/jquery-3.5.0.min.js"></script>

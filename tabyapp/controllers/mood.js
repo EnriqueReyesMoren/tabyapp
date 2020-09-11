@@ -40,22 +40,41 @@ exports.getMoodInfo = async(req, res) => {
 exports.createMood = async(req, res) => {
     // 1. extraer la informacion
     const { mood, scale, note } = req.body
-    const { id: userTaby } = req.user
-        // 2. creamos el producto en base al usuario en sesion
-    const newMood = await Moods.create({
-        mood,
-        scale,
-        note,
-        userTaby
-    })
-    await User.findByIdAndUpdate(req.user.id, {
-        $push: {
-            moods: newMood._id
-        }
-    })
-
+    const user = await User.findOne({_id:req.user.id})
+    if(user.moods){
+      const moods = await Moods.findOne({_id:req.user.moods})
+      moods[mood]+=1
+      await moods.save()
+    }else{
+      // const { id: userTaby } = req.user
+      // 2. creamos el producto en base al usuario en sesion
+  const newMood = await Moods.create({
+      scale,
+      note,
+      userTaby:user._id,
+      [mood]:1
+  })
+  user.moods = newMood._id
+  await user.save()
+  // await User.findByIdAndUpdate(req.user.id, {
+  //     $push: {
+  //         moods: newMood._id
+  //     }
+  // })
+    }
     res.redirect("/mood/main")
 }
+
+exports.moodTracker = async(req,res) => {
+  const { moodId } = req.params 
+  const { tracker } = req.body
+  await Mood.findByIdAndUpdate( moodId , {
+    $push: {
+      tracker
+    }
+  },{new: true})
+  res.redirect(`/mood/${habitId}`)
+} 
 
 exports.updateMoodView = async(req, res) => {
     const mood = await Moods.findById(req.params.moodId)

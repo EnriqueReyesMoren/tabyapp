@@ -7,11 +7,10 @@
 <h5>Your habit notes</h5>
 <p>{{ notes }}</p>
 </div>
+<div>
+  <img src="{{image}}" alt="{{name}}" style="width: 300px; height: auto;">
+</div>
 
-
-<p id="tracker">
-  {{tracker}}
-</p>
 
 <div>
 <form action="/habit/track/{{_id}}" method="POST">
@@ -26,6 +25,7 @@
 </div>
 
 </div>
+
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
 <script>

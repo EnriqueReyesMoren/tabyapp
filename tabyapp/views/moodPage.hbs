@@ -1,15 +1,6 @@
 
-<h1>Your Moods Page</h1>
-
-<h2>{{ mood }}</h2>
-
-
-
-<p>You feel {{ mood }} on a scale of {{ scale }} basis!</p>
-
-<p>
-  
-</p>
+<h1>Global Mood's Page</h1>
+<br>
 
 <div class="chart-container" style=" height:40vh; width:50vw">
   <canvas id="myChart"></canvas>
@@ -18,41 +9,52 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
 <script>
 
-  let arr = []
+
  
 window.onload = () => { 
 var ctx = document.getElementById('myChart').getContext("2d");
 var myChart = new Chart(ctx, {
     type: 'bar',
     data: {
-        labels: ['Sad',2,3,4,5],
         datasets: [{
-            label: '{{ name }}',
-            data: [{{scale}}],
-            backgroundColor: '#5E00EC',
-            borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
-            ],
-            borderWidth: 1
-        }]
+            label: 'Sad',
+            data: [{{sad}}],
+            backgroundColor: '#5E00EC'
+        },{
+            label: 'Anxious',
+            data: [{{anxious}}],
+            backgroundColor: '#FF39A6',
+            type: 'bar'
+        },{
+            label: 'Neutral',
+            data: [{{neutral}}],
+            backgroundColor: '#27A8FF',
+            type: 'bar'
+        },{
+            label: 'Happy',
+            data: [{{happy}}],
+            backgroundColor: '#00EAC3',
+            type: 'bar'
+        },{
+            label: 'Excited',
+            data: [{{excited}}],
+            backgroundColor: '#FF8806',
+            type: 'bar'
+        }],
+        labels: ['*Every time you add a feeling you add 1 unit']
     },
     options: {
         scales: {
             xAxes: [{
               scaleLabel: {
                 display: true,
-                labelString: "# of Days tracked"
+                labelString: "Feelings"
               }
             }],
             yAxes: [{
               scaleLabel:{
                 display: true,
-                labelString: 'How {{mood}} do you feel'
+                labelString: 'Feeling Total'
               },
                 ticks: {
                     beginAtZero: true
@@ -64,13 +66,4 @@ var myChart = new Chart(ctx, {
 }
 </script>
 
-
-<script>
-  switch (){
-    case 'daily':
-    return []
-    break;
-    case 'weekly'
-  }
-</script>
 

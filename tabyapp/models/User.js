@@ -15,12 +15,11 @@ const userSchema = new Schema({
         ref: "Habit"
 
     }],
-    moods: [{
+    moods: {
         type: Schema.Types.ObjectId,
         ref: "Moods"
-
-    }]
-}, {
+    }
+    }, {
     timestamps: {
         createdAt: "created_at",
         updatedAt: "updated_at"
