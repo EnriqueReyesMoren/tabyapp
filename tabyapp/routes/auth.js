@@ -42,6 +42,11 @@ router.get('/profile/:id', getContent)
 
 router.post('/profile-pic', uploader.single("profilePic"), catchErrors(updatePic))
 
+router.get("/logout", (req, res) => {
+    req.logout()
+    res.redirect("/welcome")
+})
+
 
 
 module.exports = router

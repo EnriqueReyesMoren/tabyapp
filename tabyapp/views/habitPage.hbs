@@ -1,33 +1,120 @@
-<div>
-<h1>{{ name }}</h1>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taby App</title>
+    <!-- favicon -->
+    {{!-- <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicons/favicon-16x16.png">
+    <link rel="manifest" href="assets/images/favicons/site.webmanifest"> --}}
+    <!-- plugin scripts -->
+     <link
+        href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Prata&display=swap" rel="stylesheet">
 
-<h3>You want to {{ intention }} this habit!</h3>
+    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+    <link rel="stylesheet" href="/stylesheets/animate.min.css">
+    <link rel="stylesheet" href="/stylesheets/bootstrap-select.min.css">
+    <link rel="stylesheet" href="/stylesheets/bootstrap-datepicker.min.css">
+    <link rel="stylesheet" href="/stylesheets/fontawesome-all.min.css">
+    <link rel="stylesheet" href="/stylesheets/magnific-popup.css">
+    <link rel="stylesheet" href="/stylesheets/owl.carousel.min.css">
+    <link rel="stylesheet" href="/stylesheets/owl.theme.default.min.css">
+    <link rel="stylesheet" href="/stylesheets/swiper.min.css">
+    <link rel="stylesheet" href="/stylesheets/piloz-icons.css">
 
-<div>
-<h5>Your habit notes</h5>
-<p>{{ notes }}</p>
-</div>
+    <!-- theme styles -->
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="/stylesheets/responsive.css">
+</head>
+
+<body>
+
+    <div class="preloader">
+        <img src="/assets/images/loader.png" height="100" class="preloader__image" alt="">
+    </div><!-- /.preloader -->
+
+    <div class="page-wrapper">
+        <header class="site-header-one stricky site-header-one__fixed-top">
+            <div class="container-fluid">
+                <div class="site-header-one__logo">
+                    <a href="index.html">
+                        <img src="assets/images/logo-1-1.png" width="129" alt="">
+                    </a>
+                    <span class="side-menu__toggler"><i class="fa fa-bars"></i></span><!-- /.side-menu__toggler -->
+                </div><!-- /.site-header-one__logo -->
+                <div class="main-nav__main-navigation">
+                    <ul class="main-nav__navigation-box one-page-scroll-menu">
+                        <li class="scrollToLink">
+                            <a href="/auth/profile">Home</a>
+                        </li>
+                        <li class="scrollToLink current"><a href="/habit/main">Habits</a></li>
+                        <li class="scrollToLink"><a href="/mood/main">Moods</a></li>
+                        <li class="scrollToLink"><a href="/habit/add-habit">Add new Habbit</a></li>
+                        <li class="scrollToLink"><a href="/mood/add-mood">Add new Mood</a></li>
+                        
+                    </ul><!-- /.main-nav__navigation-box -->
+                </div><!-- /.main-nav__main-navigation -->
+                <div class="main-nav__right">
+                   <a href="/auth/profile" class="thm-btn"><span>{{user.email}}</span></a>
+                    <a href="#" class="thm-btn"><span>Logout</span></a>
+                </div><!-- /.main-nav__right -->
+            </div><!-- /.container-fluid -->
+        </header><!-- /.site-header-one -->
+ <section class="cta-two">
+            <img src="assets/images/shapes/cta-2-shape-1.png" class="cta-two__bg-shape-1" alt="">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-6">
+                        <div class="cta-two__content">
+                            <div class="block-title cus-pb">
+                              <br>
+                                <p>You want to {{ intention }} this habit!</p>
+                                <h3>{{ name }}</h3>
+                            </div>
+                            <div class="cta-two__text">
+                                <h5>Your habit notes</h5>
+                                <p>{{ notes }}</p>
+                            </div>
+                            <br>
+                           <section class="mailchimp-one">
+            <div class="container wow fadeInUp" data-wow-duration="1500ms">
+                <div class="inner-container" style="background-color:{{color}};">
+                    <div class="mailchimp-one-title">
+                        <h2 style="color: white; font-size:16px">How many {{ unit }} did you use today? </h3>
+                    </div>
+                     <form action="/habit/track/{{_id}}" method="POST">
+                        <input type="number" id="input-tracker" name="tracker" placeholder="666">
+                        <br>
+                        <button class="thm-btn mailchimp-one__btn" type="submit"><span>Send</span></button>
+                        <!-- /.thm-btn -->
+                    </form>
+                </div>
+            </div>
+        </section>
 
 
-<p id="tracker">
-  {{tracker}}
-</p>
 
-<div>
-<form action="/habit/track/{{_id}}" method="POST">
-<label for="input-tracker">How many {{ unit }} did you use today? </label>
-<input type="number" id="input-tracker" name="tracker" placeholder="666">
-<button type="submit">Send!</button>
-</form>
-</div>
 
-<div class="chart-container" style=" height:40vh; width:50vw">
-  <canvas id="myChart"></canvas>
-</div>
+                      </div>      
+                    </div>
 
-</div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+                    <div class="col-xl-6">
+                        <div class="cta-two__moc wow fadeInLeft" data-wow-duration="1500ms">
+                            <div class="chart-container" style=" margin-right:200px; margin-top:100px; height:40vh; width:50vw">
+                          <canvas id="myChart"></canvas>
+                        </div>
+                        
+                        
+                    </div><!-- /.col-xl-6 -->
+
+                </div>
+            </div>
+        </section>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
 <script>
 
  let labelArray = [] 
@@ -45,7 +132,7 @@ var myChart = new Chart(ctx, {
         datasets: [{
             label: '{{ name }}',
             data: [{{tracker}}],
-            backgroundColor: '#5E00EC',
+            backgroundColor: '{{color}}',
             borderColor: [
                 'rgba(255, 99, 132, 1)',
                 'rgba(54, 162, 235, 1)',
@@ -81,4 +168,21 @@ var myChart = new Chart(ctx, {
 </script>
 
 
+ <script src="/assets/js/jquery-3.5.0.min.js"></script>
+    <script src="/assets/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/js/bootstrap-select.min.js"></script>
+    <script src="/assets/js/bootstrap-datepicker.min.js"></script>
+    <script src="/assets/js/isotope.js"></script>
+    <script src="/assets/js/jquery.ajaxchimp.min.js"></script>
+    <script src="/assets/js/jquery.waypoints.min.js"></script>
+    <script src="/assets/js/jquery.counterup.min.js"></script>
+    <script src="/assets/js/jquery.magnific-popup.min.js"></script>
+    <script src="/assets/js/jquery.validate.min.js"></script>
+    <script src="/assets/js/owl.carousel.min.js"></script>
+    <script src="/assets/js/TweenMax.min.js"></script>
+    <script src="/assets/js/swiper.min.js"></script>
+    <script src="/assets/js/wow.js"></script>
+    <script src="/assets/js/jquery.easing.min.js"></script>
+    <script src="/assets/js/theme.js"></script>
+</body>
 

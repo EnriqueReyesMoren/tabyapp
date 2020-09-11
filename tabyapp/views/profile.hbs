@@ -57,7 +57,8 @@
                     </ul><!-- /.main-nav__navigation-box -->
                 </div><!-- /.main-nav__main-navigation -->
                 <div class="main-nav__right">
-                    <a href="#" class="thm-btn"><span>Logout</span></a>
+                   
+                    <a href="/auth/logout" class="thm-btn"><span>Logout</span></a>
                 </div><!-- /.main-nav__right -->
             </div><!-- /.container-fluid -->
         </header><!-- /.site-header-one -->
@@ -80,8 +81,8 @@
                                 <p>Hello {{user.username}}</p>
                                 <h3>Let´s start<br>creating cool habits</h3>
                             </div>
-                            <a href="/habit/add-habit" class="thm-btn cta-one__btn">Add a new habit</a>
-                            <a href="/habit/main" class="thm-btn cta-one__btn">Go to the habit page</a>
+                            <a href="/habit/add-habit" class="thm-btn cta-one__btn">Add a new Habit</a>
+                            <a href="//mood/add-mood" class="thm-btn cta-one__btn">Add a new Mood</a>
                            
                             <div class="cta-one__text">
                                 <p>Email</p> 
@@ -90,9 +91,7 @@
 
                             </div>
 
-                            <form action="/profile-pic" method="POST" enctype="multipart/form-data"></form>
-                            <label for="input-profile">Update Profile Pic</label>
-                            <input type="file" id="input-profile" name="input-profile">
+                           
 
                             
                         </div>

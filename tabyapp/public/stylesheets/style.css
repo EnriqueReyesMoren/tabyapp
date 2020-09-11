@@ -196,7 +196,6 @@ button.ghost {
 }
 
 form {
-    background-color: #FFFFFF;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -3068,7 +3067,6 @@ input {
     position: relative;
     display: block;
     padding: 54px 100px 60px 100px;
-    background: var(--thm-primary);
     text-align: center;
     border-radius: 20px;
 }
@@ -3921,3 +3919,85 @@ input {
 
 
 /* buttons para tarjetas */
+
+input {
+    outline: none;
+    border: none;
+}
+
+textarea {
+    outline: none;
+    border: none;
+}
+
+textarea:focus,
+input:focus {
+    border-color: transparent !important;
+}
+
+input:focus::-webkit-input-placeholder {
+    color: transparent;
+}
+
+input:focus:-moz-placeholder {
+    color: transparent;
+}
+
+input:focus::-moz-placeholder {
+    color: transparent;
+}
+
+input:focus:-ms-input-placeholder {
+    color: transparent;
+}
+
+textarea:focus::-webkit-input-placeholder {
+    color: transparent;
+}
+
+textarea:focus:-moz-placeholder {
+    color: transparent;
+}
+
+textarea:focus::-moz-placeholder {
+    color: transparent;
+}
+
+textarea:focus:-ms-input-placeholder {
+    color: transparent;
+}
+
+input::-webkit-input-placeholder {
+    color: #aaaaaa;
+}
+
+input:-moz-placeholder {
+    color: #aaaaaa;
+}
+
+input::-moz-placeholder {
+    color: #aaaaaa;
+}
+
+input:-ms-input-placeholder {
+    color: #aaaaaa;
+}
+
+textarea::-webkit-input-placeholder {
+    color: #aaaaaa;
+}
+
+textarea:-moz-placeholder {
+    color: #aaaaaa;
+}
+
+textarea::-moz-placeholder {
+    color: #aaaaaa;
+}
+
+textarea:-ms-input-placeholder {
+    color: #aaaaaa;
+}
+
+
+/*---------------------------------------------*/

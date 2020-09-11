@@ -3,10 +3,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Taby App</title>
     <!-- favicon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicons/apple-touch-icon.png">
+    {{!-- <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicons/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicons/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicons/favicon-16x16.png">
-    <link rel="manifest" href="assets/images/favicons/site.webmanifest">
+    <link rel="manifest" href="assets/images/favicons/site.webmanifest"> --}}
     <!-- plugin scripts -->
      <link
         href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
@@ -28,14 +28,40 @@
     <link rel="stylesheet" href="/stylesheets/style.css">
     <link rel="stylesheet" href="/stylesheets/responsive.css">
 </head>
+
 <body>
 
     <div class="preloader">
-        <img src="assets/images/loader.png" height="100" class="preloader__image" alt="">
+        <img src="/assets/images/loader.png" height="100" class="preloader__image" alt="">
     </div><!-- /.preloader -->
 
     <div class="page-wrapper">
-      
+        <header class="site-header-one stricky site-header-one__fixed-top">
+            <div class="container-fluid">
+                <div class="site-header-one__logo">
+                    <a href="index.html">
+                        <img src="assets/images/logo-1-1.png" width="129" alt="">
+                    </a>
+                    <span class="side-menu__toggler"><i class="fa fa-bars"></i></span><!-- /.side-menu__toggler -->
+                </div><!-- /.site-header-one__logo -->
+                <div class="main-nav__main-navigation">
+                    <ul class="main-nav__navigation-box one-page-scroll-menu">
+                        <li class="scrollToLink">
+                            <a href="/auth/profile">Home</a>
+                        </li>
+                        <li class="scrollToLink"><a href="/habit/main">Habits</a></li>
+                        <li class="scrollToLink"><a href="/mood/main">Moods</a></li>
+                        <li class="scrollToLink current" ><a href="/habit/add-habit">Add new Habbit</a></li>
+                        <li class="scrollToLink"><a href="/mood/add-mood">Add new Mood</a></li>
+                        
+                    </ul><!-- /.main-nav__navigation-box -->
+                </div><!-- /.main-nav__main-navigation -->
+                <div class="main-nav__right">
+                   <a href="/auth/profile" class="thm-btn"><span>{{user.email}}</span></a>
+                    <a href="#" class="thm-btn"><span>Logout</span></a>
+                </div><!-- /.main-nav__right -->
+            </div><!-- /.container-fluid -->
+        </header><!-- /.site-header-one -->
 
 <section class="cta-one">
             <img src="/assets/images/shapes/cta-1-shape-1.png" class="cta-one__bg-shape-1" alt="">
@@ -95,7 +121,7 @@
             </div>
 </section>
 
- <script src="/assets/js/jquery-3.5.0.min.js"></script>
+<script src="/assets/js/jquery-3.5.0.min.js"></script>
     <script src="/assets/js/bootstrap.bundle.min.js"></script>
     <script src="/assets/js/bootstrap-select.min.js"></script>
     <script src="/assets/js/bootstrap-datepicker.min.js"></script>
