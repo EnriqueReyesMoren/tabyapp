@@ -32,7 +32,7 @@
 <body>
 
     <div class="preloader">
-        <img src="../assets/images/loader.png" height="100" class="preloader__image" alt="">
+        <img src="/assets/images/loader.png" height="100" class="preloader__image" alt="">
     </div><!-- /.preloader -->
 
     <div class="page-wrapper">
@@ -49,8 +49,8 @@
                         <li class="scrollToLink">
                             <a href="/auth/profile">Home</a>
                         </li>
-                        <li class="scrollToLink"><a href="/habit/main">Habits</a></li>
-                        <li class="scrollToLink"><a href="/mood/main">Moods</a></li>
+                        <li class="scrollToLink "><a href="/habit/main">Habits</a></li>
+                        <li class="scrollToLink current"><a href="/mood/main">Moods</a></li>
                         <li class="scrollToLink"><a href="/habit/add-habit">Add new Habbit</a></li>
                         <li class="scrollToLink"><a href="/mood/add-mood">Add new Mood</a></li>
                         
@@ -61,31 +61,49 @@
                 </div><!-- /.main-nav__right -->
             </div><!-- /.container-fluid -->
         </header>
-    </div>
-     <div class="row">
-  {{#each user.moods}}
-  <div class="col-xs-12 col-md-6 col-lg-4">
-    <div class="card">
-      <img src="https://dazedimg-dazedgroup.netdna-ssl.com/1831/azure/dazed-prod/1260/8/1268842.jpg" class="card-img-top" style="width: 400px; height:auto" alt="{{mode}}">
-      <div class="card-body">
-        <h5 class="card-title">{{mood}}</h5>
-        <p class="card-text">{{note}}</p>
-        
-        <br>
-        <br>
-        <a href="/mood/{{_id}}" class="btn btn-primary btn-block">Go details</a>
-        <a href="/mood/update/{{_id}}"class="btn btn-primary btn-block">Edit</a>
-          <a href="/mood/delete/{{_id}}" class="btn btn-primary btn-block">Delete</a>
 
-     
-      </div>
-    </div>
-  </div>
-  {{/each}}
-</div>
+ <section id="features" class="service-one">
+            <div class="container">
+                <div class="block-title text-center">
+                    <p>Track your Moods {{name}}</p>
+                    <h3>Don´t forget to share your Mood</h3>
+                </div>
+                <div class="row">
+                    {{#each user.moods}}
+                    <div class=" col-xl-3 col-lg-3 col-md-6 wow fadeInLeft" data-wow-duration="1500ms">
+                        <div class="service-one__single">
+                            <div class="service-icon">
+                                <ul class="footer-widget__social">
+                                <li><a href="/mood/update/{{_id}}" class="color-1"><i class="fab fa-edit"></i></a></li>
+                                <li><a href="/mood/delete/{{_id}}"class="color-2"><i class="fab fa-minus-circle"></i></a></li>
+                            </ul>
+                                <div class="icon-box" style="background-color: aqua;">
+                                </div>
+                            </div>
+                            <div class="text">
+                                <h3>I have felt {{mood}}</h3>
+                                <p>{{note}}</p>
+                            </div>
+                            <br>
+                            <ul class="list-unstyled pricing-one__list">
+                                <li><i></i>In a scale of: {{scale}}</li>
+                            </ul>
+                            <a href="/mood/{{_id}}" class="thm-btn pricing-one__btn"><span>Go details</span></a>
+                            <br>
+                            <br> 
+                           {{!--  <a href="/habit/update/{{_id}}" class="thm-btn pricing-one__btn">Edit habit</a>
+                            <br>
+                            <br>
+                            <a href="/habit/delete/{{_id}}" class="thm-btn pricing-one__btn">Delete</a> --}}
+                        </div>
+                    </div>
+                    {{/each}}
+                </div>
+            </div>
+             
+        </section>
 
-
-<script src="/assets/js/jquery-3.5.0.min.js"></script>
+ <script src="/assets/js/jquery-3.5.0.min.js"></script>
     <script src="/assets/js/bootstrap.bundle.min.js"></script>
     <script src="/assets/js/bootstrap-select.min.js"></script>
     <script src="/assets/js/bootstrap-datepicker.min.js"></script>

@@ -7,7 +7,9 @@
 
 <p>You feel {{ mood }} on a scale of {{ scale }} basis!</p>
 
-
+<p>
+  
+</p>
 
 <div class="chart-container" style=" height:40vh; width:50vw">
   <canvas id="myChart"></canvas>
@@ -15,15 +17,18 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
 <script>
-window.onload = () => {
+
+  let arr = []
+ 
+window.onload = () => { 
 var ctx = document.getElementById('myChart').getContext("2d");
 var myChart = new Chart(ctx, {
-    type: 'line',
+    type: 'bar',
     data: {
-        labels: ['1','2','3'],
+        labels: ['Sad',2,3,4,5],
         datasets: [{
             label: '{{ name }}',
-            data: [12, 19, 3, 5, 2, 3],
+            data: [{{scale}}],
             backgroundColor: '#5E00EC',
             borderColor: [
                 'rgba(255, 99, 132, 1)',
@@ -38,7 +43,17 @@ var myChart = new Chart(ctx, {
     },
     options: {
         scales: {
+            xAxes: [{
+              scaleLabel: {
+                display: true,
+                labelString: "# of Days tracked"
+              }
+            }],
             yAxes: [{
+              scaleLabel:{
+                display: true,
+                labelString: 'How {{mood}} do you feel'
+              },
                 ticks: {
                     beginAtZero: true
                 }

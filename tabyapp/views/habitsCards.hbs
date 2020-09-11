@@ -49,7 +49,7 @@
                         <li class="scrollToLink">
                             <a href="/auth/profile">Home</a>
                         </li>
-                        <li class="scrollToLink"><a href="/habit/main">Habits</a></li>
+                        <li class="scrollToLink current"><a href="/habit/main">Habits</a></li>
                         <li class="scrollToLink"><a href="/mood/main">Moods</a></li>
                         <li class="scrollToLink"><a href="/habit/add-habit">Add new Habbit</a></li>
                         <li class="scrollToLink"><a href="/mood/add-mood">Add new Mood</a></li>
@@ -62,39 +62,52 @@
             </div><!-- /.container-fluid -->
         </header>
 
-  <div class="container">
-    <br>
-
-    <h2>Take a look at how much you've improved
-</h2>
-
- <br>
-
- <br>
-
-
-
-<div class="row">
-  {{#each user.habits}}
-  <div class="col-xs-12 col-md-6 col-lg-4">
-    <div class="card" style="background-color: {{color}};">
-      <img src="{{image}}" class="card-img-top" alt="{{name}}">
-      <div class="card-body">
-        <h5 class="card-title">{{name}}</h5>
-        <p class="card-text">{{notes}}</p>
-        
-        <br>
-        <br>
-        <a href="/habit/{{_id}}" class="btn btn-primary btn-block">Go details</a>
-        <a href="/habit/update/{{_id}}"class="btn btn-primary btn-block">Edit habit</a>
-          <a href="/habit/delete/{{_id}}" class="btn btn-primary btn-block">Delete</a>
-
-     
-      </div>
-    </div>
-  </div>
-  {{/each}}
-</div>
+ <section id="features" class="service-one">
+            <div class="container">
+                <div class="block-title text-center">
+                    <p>Track your habits {{name}}</p>
+                    <h3>Take a look at how much you've improved</h3>
+                </div>
+                <div class="row">
+                    {{#each user.habits}}
+                    <div class=" col-xl-3 col-lg-3 col-md-6 wow fadeInLeft" data-wow-duration="1500ms">
+                        <div class="service-one__single">
+                            <div class="service-icon">
+                                <ul class="footer-widget__social">
+                                <li><a href="/habit/update/{{_id}}" class="color-1"><i class="fab fa-edit"></i></a></li>
+                                <li><a href="/habit/delete/{{_id}}"class="color-2"><i class="fab fa-minus-circle"></i></a></li>
+                            </ul>
+                                <div class="icon-box" style="background-color:{{color}};">
+                                </div>
+                            </div>
+                            <div class="text">
+                                <h3>{{name}}</h3>
+                                <p>{{ notes}}</p>
+                            </div>
+                            <br>
+                            <ul class="list-unstyled pricing-one__list">
+                                <li><i></i>I wanna {{intention}}</li>
+                                <li><i></i>For {{goal}} days</li>
+                                <li><i></i>My units are {{unit}}</li>
+                            </ul>
+                            
+                            <a href="/habit/{{_id}}" class="thm-btn pricing-one__btn"><span>Go details</span></a>
+                            
+                            
+                           
+                           
+ 
+                           {{!--  <a href="/habit/update/{{_id}}" class="thm-btn pricing-one__btn">Edit habit</a>
+                            <br>
+                            <br>
+                            <a href="/habit/delete/{{_id}}" class="thm-btn pricing-one__btn">Delete</a> --}}
+                        </div>
+                    </div>
+                    {{/each}}
+                </div>
+            </div>
+             
+        </section>
 
  <script src="/assets/js/jquery-3.5.0.min.js"></script>
     <script src="/assets/js/bootstrap.bundle.min.js"></script>
