@@ -383,6 +383,10 @@ input {
     right: 0;
 }
 
+.esconder {
+    display: none;
+}
+
 
 /* block title */
 

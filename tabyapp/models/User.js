@@ -19,7 +19,7 @@ const userSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: "Moods"
     }
-    }, {
+}, {
     timestamps: {
         createdAt: "created_at",
         updatedAt: "updated_at"

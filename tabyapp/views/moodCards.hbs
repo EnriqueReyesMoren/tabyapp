@@ -69,7 +69,7 @@
                     <p>Track your Moods {{name}}</p>
                     <h3>Don´t forget to share your Mood</h3>
                 </div>
-                <div class="row">
+                <div class="row" style="display:flex;  justify-content:flex-end; width:inherit;">
                     {{#with user.moods}}
                     <div class=" col-xl-3 col-lg-3 col-md-6 wow fadeInLeft" data-wow-duration="1500ms">
                         <div class="service-one__single">
@@ -96,9 +96,23 @@
                             <br>
                             <br>
                             <a href="/habit/delete/{{_id}}" class="thm-btn pricing-one__btn">Delete</a> --}}
+                            
                         </div>
+                         <div class=" col-xl-3 col-lg-3 col-md-6 wow fadeInLeft" data-wow-duration="1500ms">
+                            
+                         </div>
                     </div>
                     {{/with}}
+                    {{!-- ff --}}
+                    <div class=" col-xl-3 col-lg-3 col-md-6 wow fadeInLeft" data-wow-duration="1500ms">
+                        <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+<lottie-player src="https://assets4.lottiefiles.com/packages/lf20_plvXot.json"  background="transparent"  speed="1"  style="width: 600px; height: 600px;" hover loop  autoplay></lottie-player>
+                            
+                        </div>
+                         <div class=" col-xl-3 col-lg-3 col-md-6 wow fadeInLeft" data-wow-duration="1500ms">
+                            
+                         </div>
+                    </div>
                 </div>
             </div>
             
