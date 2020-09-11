@@ -3,10 +3,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Taby App</title>
     <!-- favicon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicons/apple-touch-icon.png">
+    {{!-- <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicons/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicons/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicons/favicon-16x16.png">
-    <link rel="manifest" href="assets/images/favicons/site.webmanifest">
+    <link rel="manifest" href="assets/images/favicons/site.webmanifest"> --}}
     <!-- plugin scripts -->
      <link
         href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
@@ -32,7 +32,7 @@
 <body>
 
     <div class="preloader">
-        <img src="/assets/images/loader.png" height="100" class="preloader__image" alt="">
+        <img src="../assets/images/loader.png" height="100" class="preloader__image" alt="">
     </div><!-- /.preloader -->
 
     <div class="page-wrapper">
@@ -61,24 +61,12 @@
                 </div><!-- /.main-nav__right -->
             </div><!-- /.container-fluid -->
         </header>
-
-  <div class="container">
-    <br>
-
-    <h2>Take a look at how much you've improved
-</h2>
-
- <br>
-
- <br>
-
-
-
-<div class="row">
-  {{#each user.mood}}
+    </div>
+     <div class="row">
+  {{#each user.moods}}
   <div class="col-xs-12 col-md-6 col-lg-4">
     <div class="card">
-      <img src="https://dazedimg-dazedgroup.netdna-ssl.com/1831/azure/dazed-prod/1260/8/1268842.jpg" class="card-img-top" alt="{{mood}}">
+      <img src="https://dazedimg-dazedgroup.netdna-ssl.com/1831/azure/dazed-prod/1260/8/1268842.jpg" class="card-img-top" style="width: 400px; height:auto" alt="{{mode}}">
       <div class="card-body">
         <h5 class="card-title">{{mood}}</h5>
         <p class="card-text">{{note}}</p>
@@ -86,7 +74,7 @@
         <br>
         <br>
         <a href="/mood/{{_id}}" class="btn btn-primary btn-block">Go details</a>
-        <a href="/mood/update/{{_id}}"class="btn btn-primary btn-block">Edit habit</a>
+        <a href="/mood/update/{{_id}}"class="btn btn-primary btn-block">Edit</a>
           <a href="/mood/delete/{{_id}}" class="btn btn-primary btn-block">Delete</a>
 
      
@@ -96,7 +84,8 @@
   {{/each}}
 </div>
 
- <script src="/assets/js/jquery-3.5.0.min.js"></script>
+
+<script src="/assets/js/jquery-3.5.0.min.js"></script>
     <script src="/assets/js/bootstrap.bundle.min.js"></script>
     <script src="/assets/js/bootstrap-select.min.js"></script>
     <script src="/assets/js/bootstrap-datepicker.min.js"></script>

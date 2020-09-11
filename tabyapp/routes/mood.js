@@ -49,7 +49,11 @@ const { ensureLogin, catchErrors } = require("../middlewares")
 const {
     createMood,
     getMoods,
-    addMood
+    addMood,
+    updateMoodProcess,
+    updateMoodView,
+    getMoodInfo,
+    deleteMood
 } = require("../controllers/mood")
 
 
@@ -62,24 +66,21 @@ router.get("/main", ensureLogin, catchErrors(getMoods))
 
 router.get('/add-mood', addMood)
 
+router.get('/:moodId', getMoodInfo)
+
 router.post("/add-mood",
     ensureLogin,
     catchErrors(createMood))
 
+
+router.get('/update/:moodId', ensureLogin, updateMoodView)
+
+router.post('/update/:moodId', ensureLogin, updateMoodProcess)
+
+router.get('/delete/:moodId', ensureLogin, deleteMood)
 
 
 
 
 
 module.exports = router
-
-/* router.get("/habit/:habitId", habitDetail)
-router.get("/habits/end", deleteHabit)
-router.get("/habit/end/:habitId", achieveHabit)
- */
-
-
-
-//toHabitPage
-/* router.get('/:addId', viewMood)
- */
