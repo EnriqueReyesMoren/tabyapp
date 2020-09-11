@@ -9,13 +9,13 @@ const {
     createHabit,
     getHabits,
     addHabit,
-    viewHabit,
     getMainPage,
     deleteHabit,
     updateHabitView,
     updateHabitProcess,
     getBoost,  
-    getHabitInfo
+    getHabitInfo,
+    tracker
 } = require("../controllers/habits")
 
 
@@ -51,6 +51,7 @@ router.post('/update/:habitId', ensureLogin, updateHabitProcess)
 
 router.get('/delete/:habitId', ensureLogin, deleteHabit)
 
+router.post('/track/:habitId', ensureLogin, tracker )
 // toMainPage
 router.get("/main", getMainPage)
 

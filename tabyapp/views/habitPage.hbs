@@ -1,13 +1,18 @@
 
 <h1>Habit Page</h1>
-
 <h2>{{ name }}</h2>
-
 <p>You want to {{ intention }} this habit!</p>
 
-<p>You should {{ name }} on a {{ period }} basis!</p>
+<h4>Your habit notes</h4>
+<p>{{ notes }}</p>
 
+<p>{{ unit }}</p>
 
+<form action="/habit/track/{{_id}}" method="POST">
+<label for="input-tracker">How many {{ unit }} did you use today? </label>
+<input type="number" id="input-tracker" name="tracker" placeholder="666">
+<button type="submit">Send!</button>
+</form>
 
 <div class="chart-container" style=" height:40vh; width:50vw">
   <canvas id="myChart"></canvas>
@@ -15,15 +20,23 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
 <script>
-window.onload = () => {
+
+ let labelArray = [] 
+
+ for(let i=0; i<={{ goal }}; i++){
+      labelArray.push(i)
+ }
+
+
+window.onload = () => { 
 var ctx = document.getElementById('myChart').getContext("2d");
 var myChart = new Chart(ctx, {
     type: 'line',
     data: {
-        labels: ['1','2','3'],
+        labels: labelArray,
         datasets: [{
             label: '{{ name }}',
-            data: [12, 19, 3, 5, 2, 3],
+            data: [12,19, 3, 5, 2, 3],
             backgroundColor: '#5E00EC',
             borderColor: [
                 'rgba(255, 99, 132, 1)',
@@ -50,12 +63,4 @@ var myChart = new Chart(ctx, {
 </script>
 
 
-<script>
-  switch (){
-    case 'daily':
-    return []
-    break;
-    case 'weekly'
-  }
-</script>
 

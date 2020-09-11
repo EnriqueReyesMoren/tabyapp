@@ -50,19 +50,20 @@ exports.getBoost = (req, res) => {
 
 exports.createHabit = async(req, res) => {
     // 1. extraer la informacion
-    const { name, intention, period, goal, notes, color } = req.body
+    const { name, intention, unit, goal, notes, color,tracker} = req.body
     const { path: image } = req.file
     const { id: userTaby } = req.user
         // 2. creamos el producto en base al usuario en sesion
     const newHabit = await Habit.create({
         name,
         intention,
-        period,
+        unit,
         goal,
         notes,
         color,
         image,
-        userTaby
+        userTaby,
+        tracker
     })
     await User.findByIdAndUpdate(req.user.id, {
         $push: {
@@ -71,6 +72,16 @@ exports.createHabit = async(req, res) => {
     })
     res.redirect("/habit/main")
 }
+
+exports.tracker = async(req,res) => {
+  const { tracker } = req.body
+  await Habit.findByIdAndUpdate( req.user.id, {
+    $push: {
+      tracker: tracker
+    }
+  })
+  res.redirect("/habit/:habitId")
+} 
 
 exports.updateHabitView = async(req, res) => {
     const habit = await Habit.findById(req.params.habitId)

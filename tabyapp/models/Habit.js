@@ -13,20 +13,16 @@ const habitSchema = new Schema({
         required: true
     },
 
-    period: {
+    unit: {
         type: String,
-        enum: [`daily`, `weekly`, `monthly`, `yearly`]
+        enum: ['calories', 'dollars', 'hours', 'wellness']
     },
     goal: {
         type: Number,
         required: true
     },
 
-    notes: {
-        notes: {
-            type: String
-        }
-    },
+    notes: String,
     color: {
         type: String,
         enum: [`tomato`, `orange`, `dodgerblue`, `mediumseagreen`, `slateblue`, `violet`, `gray`],
@@ -37,9 +33,7 @@ const habitSchema = new Schema({
         type: String
     },
 
-    tracker: {
-      type: [String]
-    },
+    tracker: [Number],
 
     userTaby: {
         type: Schema.Types.ObjectId,

@@ -7,7 +7,8 @@ const userSchema = new Schema({
     email: String,
     password: String,
     profilePic: {
-        type: String
+        type: String,
+        default: "https://dazedimg-dazedgroup.netdna-ssl.com/1831/azure/dazed-prod/1260/8/1268842.jpg"
     },
     habits: [{
         type: Schema.Types.ObjectId,
