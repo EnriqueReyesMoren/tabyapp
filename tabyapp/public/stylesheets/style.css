@@ -3140,7 +3140,12 @@ input {
 }
 
 .footer-widget__social {
-    padding: 37px 0 29px 0;
+    padding: 0px 0px 0 0;
+    right: 2px;
+    top: 0px;
+    position: fixed;
+    display: flex;
+    justify-content: flex-start;
 }
 
 .footer-widget__social li {
@@ -3913,3 +3918,6 @@ input {
 .sidebar__tags-list-item a:hover {
     color: var(--thm-black);
 }
+
+
+/* buttons para tarjetas */
