@@ -1,25 +1,30 @@
+<div>
+<h1>{{ name }}</h1>
 
-<h1>Habit Page</h1>
-<h2>{{ name }}</h2>
-<p>You want to {{ intention }} this habit!</p>
+<h3>You want to {{ intention }} this habit!</h3>
 
-<h4>Your habit notes</h4>
+<div>
+<h5>Your habit notes</h5>
 <p>{{ notes }}</p>
+</div>
 
-<p>{{ unit }}</p>
+
 <p id="tracker">
   {{tracker}}
 </p>
 
-
+<div>
 <form action="/habit/track/{{_id}}" method="POST">
 <label for="input-tracker">How many {{ unit }} did you use today? </label>
 <input type="number" id="input-tracker" name="tracker" placeholder="666">
 <button type="submit">Send!</button>
 </form>
+</div>
 
 <div class="chart-container" style=" height:40vh; width:50vw">
   <canvas id="myChart"></canvas>
+</div>
+
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
@@ -30,12 +35,7 @@
  for(let i=0; i<={{ goal }}; i++){
       labelArray.push(i)
  }
-
- let newTracker = {{tracker}}
- let num = newTracker.map(e=> parseInt(e))
-
  
-
 window.onload = () => { 
 var ctx = document.getElementById('myChart').getContext("2d");
 var myChart = new Chart(ctx, {
@@ -44,7 +44,7 @@ var myChart = new Chart(ctx, {
         labels: labelArray,
         datasets: [{
             label: '{{ name }}',
-            data: num,
+            data: [67,54,34],
             backgroundColor: '#5E00EC',
             borderColor: [
                 'rgba(255, 99, 132, 1)',
@@ -59,7 +59,17 @@ var myChart = new Chart(ctx, {
     },
     options: {
         scales: {
+            xAxes: [{
+              scaleLabel: {
+                display: true,
+                labelString: "# of Days tracked"
+              }
+            }],
             yAxes: [{
+              scaleLabel:{
+                display: true,
+                labelString: 'Times per Day'
+              },
                 ticks: {
                     beginAtZero: true
                 }
